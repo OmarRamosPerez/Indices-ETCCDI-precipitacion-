@@ -8,15 +8,6 @@ Paquete en Python para calcular y graficar Índices Clímaticos de Precipitació
 <br><br>
 
 
-# Requerimientos:
-
-- [numpy] Numpy https://numpy.org/
-- [cartopy] https://cartopy.readthedocs.io/stable/index.html
-- [netCDF4](http://unidata.github.io/netcdf4-python/)
-
-**Tip**: Si instalas el paquete ETCCDI-Precipitacion mediante pip, no tienes que preocuparte por instalar estos paquetes, ya que se instalarán automáticamente. 
-<br><br>
-
 # Tutorial:
 Aquí encontrarás ejemplos de cuadernos de Jupyter para la última versión. [here] ()
 <br><br>
