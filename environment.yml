@@ -15,3 +15,6 @@ dependencies:
   - pyproj
   - cartopy
   - pip
+  - jupyterlab        # Interfaz moderna de Jupyter
+  - ipykernel         # Registra el entorno como kernel
+  - ipympl            # Gráficas interactivas en notebooks
