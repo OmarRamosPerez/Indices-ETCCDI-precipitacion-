@@ -1,0 +1,17 @@
+name: ETCCDI_precipitacion
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python=3.10  # Adjust based on your needs
+  - cdo
+  - numpy
+  - scipy
+  - matplotlib
+  - proplot
+  - netcdf4
+  - pyyaml
+  - pandas
+  - pyproj
+  - cartopy
+  - pip
