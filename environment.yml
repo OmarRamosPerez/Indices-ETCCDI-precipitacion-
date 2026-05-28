@@ -8,7 +8,7 @@ dependencies:
   - cdo
   - numpy
   - scipy
-  - matplotlib<3.8      # ← solo el límite superior, no versión exacta
+  - matplotlib>=3.3,<3.5   # ← rango exacto que requiere proplot
   - netcdf4
   - pyyaml
   - pandas
@@ -18,6 +18,6 @@ dependencies:
   - ipykernel
   - ipympl
   - pip:
-    - proplot==0.9.7    # ← proplot vía pip para evitar conflictos conda
+    - proplot==0.9.7
     - tqdm
     - pymannkendall
