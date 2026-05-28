@@ -8,7 +8,7 @@ dependencies:
   - cdo
   - numpy
   - scipy
-  - matplotlib>=3.3,<3.5   # ← rango exacto que requiere proplot
+  - matplotlib
   - netcdf4
   - pyyaml
   - pandas
@@ -18,6 +18,5 @@ dependencies:
   - ipykernel
   - ipympl
   - pip:
-    - proplot==0.9.7
     - tqdm
     - pymannkendall
