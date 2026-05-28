@@ -3,20 +3,20 @@ channels:
   - conda-forge
   - nodefaults
 dependencies:
-  - python=3.10  # Adjust based on your needs
+  - python=3.10
   - cdo
   - numpy
   - scipy
-  - matplotlib
-  - proplot
+  - matplotlib=3.7      # ← versión compatible con proplot
+  - proplot=0.9.7       # ← última versión estable
   - netcdf4
   - pyyaml
   - pandas
   - pyproj
   - cartopy
-  - pip
-  - jupyterlab        # Interfaz moderna de Jupyter
-  - ipykernel         # Registra el entorno como kernel
-  - ipympl            # Gráficas interactivas en notebooks
-  - tqdm
-  - pymannkendall
+  - jupyterlab
+  - ipykernel
+  - ipympl
+  - pip:
+    - tqdm
+    - pymannkendall
