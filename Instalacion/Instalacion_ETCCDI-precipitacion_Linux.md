@@ -8,32 +8,33 @@ Si aún no tienes conda, consulta cómo instalarlo aquí [Anaconda Linux](https:
 ## 2) Clona el repositorio
 
 En anaconda promp
-
+```
 git clone https://github.com/OmarRamosPerez/Indices-ETCCDI-precipitacion-.git
-
+```
 
 Ir al directorio Indices-ETCCDI-precipitacion
-
+```
 cd Indices-ETCCDI-precipitacion-
-
+```
 ## 3) Crear el entorno
 Utiliza conda para crear el nuevo entorno e instalar las dependencias
-
+```
 conda env create -f environment.yml
-
+```
 Esto creará automáticamente el entorno llamado ETCCDI_precipitacion con todas las dependencias. \
 ⏳ Puede tardar varios minutos.
 
 ## 4) Activa el entorno
 Sin salir del anaconda promp
-
+```
 conda activate ETCCDI_precipitacion
-
+```
 ## 5) Instala el paquete
-
+```
 pip install -e .
-
+```
 ## 6) Replicación de Ejemplos
 Instalar el entorno como kernel para que aparezca disponible en Jupyter.
-
+```
 python -m ipykernel install --user --name ETCCDI_precipitacion --display-name "ETCCDI_precipitacion"
+```
