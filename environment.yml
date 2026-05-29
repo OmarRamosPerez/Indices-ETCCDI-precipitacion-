@@ -17,6 +17,7 @@ dependencies:
   - jupyterlab
   - ipykernel
   - ipympl
+  - xarray
   - pip:
     - tqdm
     - pymannkendall
