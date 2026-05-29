@@ -72,8 +72,9 @@ conda activate ETCCDI_precipitacion
 Enseguida escribir las siguientes líneas
 ```
 python -c "
-from ETCCDI_precipitacion.Procesamiento.ETCCDI_precip_procesamiento import ETCCDI_precip_grid, ETCCDI_precip_insitu
-from ETCCDI_precipitacion.Ploteo.ETCCDI_precip_plot import ETCCDI_precip_plot_insitu, ETCCDI_precip_plot_grid
+from ETCCDI_precipitacion import ETCCDI_precip_grid, ETCCDI_precip_insitu
+from ETCCDI_precipitacion import ETCCDI_precip_plot_insitu, ETCCDI_precip_plot_grid
 print('✅ Paquete instalado correctamente')
+"
 ```
 
