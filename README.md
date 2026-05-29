@@ -77,4 +77,5 @@ from ETCCDI_precipitacion import ETCCDI_precip_plot_insitu, ETCCDI_precip_plot_g
 print('✅ Paquete instalado correctamente')
 "
 ```
+![Felicitaciones paquete "ETCCDI_precipitacion"](Verificacion_Instalacion_paquete.png) 
 
