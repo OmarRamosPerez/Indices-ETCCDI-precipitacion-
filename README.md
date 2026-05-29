@@ -20,7 +20,7 @@ Aquí encontrarás ejemplos de cuadernos de Jupyter para la última versión. [h
 
 - [Windows](Instalacion/Instalacion_ETCCDI-precipitacion_Windows.md) 
 - [Linux](Instalacion/Instalacion_ETCCDI-precipitacion_Linux.md)
-- [MacOS]().
+- [MacOS]()
 
 <!--
 3.1 Instalación en Linux (Ubuntu / Debian)
