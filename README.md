@@ -61,5 +61,9 @@ Paso 5: Verificar instalación
 ```
 python3 -c "from ETCCDI_precipitacion.Procesamiento import ETCCDI_precip_procesamiento; print('OK')"
 ```
+-->
+
+# 4) Verificación de instalación
+
 
 
