@@ -7,7 +7,7 @@ Si aún no tienes conda, consulta cómo instalarlo aquí [Anaconda Windows](http
 
 ## 2) Clona el repositorio
 
-En anaconda promp
+En anaconda prompt
 ```
 git clone https://github.com/OmarRamosPerez/Indices-ETCCDI-precipitacion-.git
 
