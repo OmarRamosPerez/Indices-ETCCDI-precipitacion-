@@ -8,10 +8,12 @@ Paquete en Python para calcular y graficar Índices Clímaticos de Precipitació
 <br><br>
 
 
+
+<!--
 # Tutorial:
 Aquí encontrarás ejemplos de cuadernos de Jupyter para la última versión. [here] ()
 <br><br>
-
+-->
 
 # 3. Instalación paso a paso con pip
 <br><br>
