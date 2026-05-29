@@ -16,7 +16,10 @@ Aquí encontrarás ejemplos de cuadernos de Jupyter para la última versión. [h
 # 3. Instalación paso a paso con pip
 <br><br>
 
+- [Windows](Instalacion/Instalacion_ETCCDI-precipitacion_Windows.md) 
 
+
+<!--
 3.1 Instalación en Linux (Ubuntu / Debian)
 
 Paso 1: Instalar CDO y dependencias del sistema
