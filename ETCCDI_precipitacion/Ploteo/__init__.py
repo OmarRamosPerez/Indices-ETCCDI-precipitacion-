@@ -1,5 +1,1 @@
-name = "ETCCDI-precipitacion"
-from .ETCCDI_precip_plot import *
-
-
-_version_ = '1.0'
+from .ETCCDI_precip_plot import ETCCDI_precip_plot_insitu, ETCCDI_precip_plot_grid
