@@ -1,5 +1,2 @@
-name = "ETCCDI_precipitacion"
-from .Procesamiento.ETCCDI_precip_procesamiento import *
-from .Ploteo.ETCCDI_precip_plot import *
-
-__version__ = '1.0'
+from .Procesamiento import ETCCDI_precip_grid, ETCCDI_precip_insitu
+from .Ploteo import ETCCDI_precip_plot_insitu, ETCCDI_precip_plot_grid
