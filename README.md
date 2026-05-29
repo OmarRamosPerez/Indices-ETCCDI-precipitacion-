@@ -15,7 +15,7 @@ Aquí encontrarás ejemplos de cuadernos de Jupyter para la última versión. [h
 <br><br>
 -->
 
-# 3. Instalación paso a paso con pip
+# 3. Instalación paso a paso
 <br><br>
 
 - [Windows](Instalacion/Instalacion_ETCCDI-precipitacion_Windows.md) 
