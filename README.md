@@ -65,5 +65,15 @@ python3 -c "from ETCCDI_precipitacion.Procesamiento import ETCCDI_precip_procesa
 
 # 4) Verificación de instalación
 
-
+En anaconda prompt o la terminal, activar el entorno "ETCCDI_precipitacion"
+```
+conda activate ETCCDI_precipitacion
+```  
+Enseguida escribir las siguientes líneas
+```
+python -c "
+from ETCCDI_precipitacion.Procesamiento.ETCCDI_precip_procesamiento import ETCCDI_precip_grid, ETCCDI_precip_insitu
+from ETCCDI_precipitacion.Ploteo.ETCCDI_precip_plot import ETCCDI_precip_plot_insitu, ETCCDI_precip_plot_grid
+print('✅ Paquete instalado correctamente')
+```
 
