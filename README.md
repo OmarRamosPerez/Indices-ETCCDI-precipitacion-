@@ -65,7 +65,7 @@ python3 -c "from ETCCDI_precipitacion.Procesamiento import ETCCDI_precip_procesa
 
 # 4) Verificación de instalación
 
-En anaconda prompt o la terminal, activar el entorno "ETCCDI_precipitacion"
+En una nueva anaconda prompt o terminal, activar el entorno "ETCCDI_precipitacion"
 ```
 conda activate ETCCDI_precipitacion
 ```  
