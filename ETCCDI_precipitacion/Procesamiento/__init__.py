@@ -1,1 +1,1 @@
-from .ETCCDI_precip_procesamiento import ETCCDI_precip_grid, ETCCDI_precip_insitu
+from .ETCCDI_precip_procesamiento import ETCCDI_precip_malla, ETCCDI_precip_in_situ
