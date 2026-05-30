@@ -43,44 +43,44 @@ def _remove_files(*paths: str) -> None:
             pass
 
 
-class ETCCDI_precip_grid:
+class ETCCDI_precip_malla:
     """
     Módulo para calcular índices climáticos ETCCDI en datos NetCDF (malla).
     PR = Precipitación diaria en mm.
     
-    Índices de Precipitación soportados:
+    Índices de precipitación soportados:
         
         *** ID      ** Nombre Indicador   ***             
         
         *** R10mm   ** Número de días con precipitaciones intensas (PR ≥ 10 mm) ***                  
-                    Ejemplo: ETCCDI_grid.r10mm_grid(infile: str, output_file: str)
+                    Ejemplo: ETCCDI_malla.r10mm_malla(infile: str, output_file: str)
         
         *** R20mm   ** Número de días con precipitaciones muy intensas (PR es ≥ 20 mm) ***                
-                    Ejemplo: ETCCDI_grid.r20mm(infile: str, output_file: str)
+                    Ejemplo: ETCCDI_malla.r20mm(infile: str, output_file: str)
         
         *** Rx1day  ** Precipitación máxima en un día ***  
-                    Ejemplo: ETCCDI_grid.rx1day(infile: str, output_file: str)
+                    Ejemplo: ETCCDI_malla.rx1day(infile: str, output_file: str)
                         
         *** Rx5day  ** Precipitación máxima en 5 días ***    
-                    Ejemplo: ETCCDI_grid.rx5day(infile: str, output_file: str) 
+                    Ejemplo: ETCCDI_malla.rx5day(infile: str, output_file: str) 
                         
         *** CDD     ** Días secos (PR < 1 mm) consecutivos ***
-                    Ejemplo: ETCCDI_grid.cdd(infile: str, output_file: str)
+                    Ejemplo: ETCCDI_malla.cdd(infile: str, output_file: str)
                         
         *** CWD     ** Días húmedos (PR ≥ 1 mm) consecutivos ***   
-                    Ejemplo: ETCCDI_grid.cwd(infile: str, output_file: str)
+                    Ejemplo: ETCCDI_malla.cwd(infile: str, output_file: str)
                         
         *** SDII    ** Índice de intensidad diaria simple ***  
-                    Ejemplo: ETCCDI_grid.sdii(infile: str, output_file: str)
+                    Ejemplo: ETCCDI_malla.sdii(infile: str, output_file: str)
 
         *** PRCPTOT    **** Precipitación total anual en días lluviosos (PR ≥ 1 mm) *** 
-                    Ejemplo: ETCCDI_grid.prcptot(infile: str, output_file: str)
+                    Ejemplo: ETCCDI_malla.prcptot(infile: str, output_file: str)
 
         *** R95p    ** Días muy húmedos (días > Percentil 95th) ***
                     Periodo base actual: 1991 - 2020
                     Periodos anteriores: 1961 - 1990
                                          1981 - 2010
-                    Ejemplo: ETCCDI_grid.r95p(input_file, output_file, base_start, base_end)
+                    Ejemplo: ETCCDI_malla.r95p(input_file, output_file, base_start, base_end)
     
     
         *** Cada función tiene su descripción ***
@@ -111,7 +111,7 @@ class ETCCDI_precip_grid:
 
 
     def r20mm(archivo_entrada: str, archivo_salida: str):
-        """ Esta función calcula el Indice ETCCDI R20 para un archivo netcdf
+        """ Esta función calcula el índice ETCCDI R20 para un archivo netcdf
         
         Índice climático:   R20 [Número de días con precipitaciones muy intensas]
         Definición:         Recuento anual de días en los que PR es ≥ 20 mm
@@ -129,7 +129,7 @@ class ETCCDI_precip_grid:
 
 
     def rx1day(archivo_entrada: str, archivo_salida: str):
-        """ Esta función calcula el Indice ETCCDI RX1day para un archivo netcdf
+        """ Esta función calcula el índice ETCCDI RX1day para un archivo netcdf
         
         Índice climático:   RX1day [Precipitación máxima en un día]
         Definición:         Precipitación máxima mensual en un día.
@@ -146,7 +146,7 @@ class ETCCDI_precip_grid:
 
 
     def rx5day(archivo_entrada: str, archivo_salida: str):
-        """ Esta función calcula el Indice ETCCDI RX5day para un archivo netcdf
+        """ Esta función calcula el índice ETCCDI RX5day para un archivo netcdf
         
         Índice climático:   RX5day [Precipitación máxima en 5 días].
         Definición:         Precipitación máxima mensual en 5 días
@@ -164,7 +164,7 @@ class ETCCDI_precip_grid:
 
 
     def cdd(archivo_entrada: str, archivo_salida: str):
-        """ Esta función calcula el Indice ETCCDI CDD para un archivo netcdf
+        """ Esta función calcula el índice ETCCDI CDD para un archivo netcdf
         
         Índice climático:   CDD [Días secos consecutivos]
         Definición:         Número máximo de días consecutivos en los que PR < 1 mm 
@@ -182,7 +182,7 @@ class ETCCDI_precip_grid:
 
         
     def cwd(archivo_entrada: str, archivo_salida: str):
-        """ Esta función calcula el Indice ETCCDI CWD para un archivo netcdf
+        """ Esta función calcula el índice ETCCDI CWD para un archivo netcdf
         
         Índice climático:   CWD [Días húmedos consecutivos]
         Definición:         Número máximo de días consecutivos en los que PR ≥ a 1 mm 
@@ -200,7 +200,7 @@ class ETCCDI_precip_grid:
 
 
     def sdii(archivo_entrada: str, archivo_salida: str):
-        """ Esta función calcula el Indice ETCCDI SDII para un archivo netcdf
+        """ Esta función calcula el índice ETCCDI SDII para un archivo netcdf
         
         Índice climático:   SDII [Índice de intensidad diaria simple]. 
         Definición:         Se calcula dividiendo la precipitación total anual 
@@ -441,52 +441,52 @@ class ETCCDI_precip_grid:
 #/////////////////////////////////////////////////////////////////////////////////////////////////////////
 from calendar import isleap
 
-class   ETCCDI_precip_insitu:
+class   ETCCDI_precip_in_situ:
     """
-    Módulo para calcular índices climáticos ETCCDI usando datos --in situ-- (estación meteorologica) en formato .txt 
+    Módulo para calcular índices climáticos ETCCDI usando datos --in situ-- (estación meteorológica) en formato .txt 
     
     Índices soportados:
-        Precipitación :        Funcion del módulo:
+        Precipitación :        Función del módulo:
 
         *** ID      ** Nombre Indicador   ***             
         
         *** R10mm   ** Número de días con precipitaciones intensas (PR ≥ 10 mm) ***                  
-                    Ejemplo: ETCCDI_insitu.r10mm(archivo_entrada: str, archivo_salida: str)  
+                    Ejemplo: ETCCDI_in_situ.r10mm(archivo_entrada: str, archivo_salida: str)  
         
         *** R20mm   ** Número de días con precipitaciones muy intensas (PR es ≥ 20 mm) ***                
-                    Ejemplo: ETCCDI_insitu.r20mm(archivo_entrada: str, archivo_salida: str) 
+                    Ejemplo: ETCCDI_in_situ.r20mm(archivo_entrada: str, archivo_salida: str) 
         
         *** Rx1day  ** Precipitación máxima en un día ***  
-                    Ejemplo: ETCCDI_insitu.rx1day(archivo_entrada: str, archivo_salida: str) 
+                    Ejemplo: ETCCDI_in_situ.rx1day(archivo_entrada: str, archivo_salida: str) 
                         
         *** Rx5day  ** Precipitación máxima en 5 días ***    
-                    Ejemplo: ETCCDI_insitu.rx5day(archivo_entrada: str, archivo_salida: str)  
+                    Ejemplo: ETCCDI_in_situ.rx5day(archivo_entrada: str, archivo_salida: str)  
                         
         *** CDD     ** Días secos (PR < 1 mm) consecutivos ***
-                    Ejemplo: ETCCDI_insitu.cdd(archivo_entrada: str, archivo_salida: str) 
+                    Ejemplo: ETCCDI_in_situ.cdd(archivo_entrada: str, archivo_salida: str) 
                         
         *** CWD     ** Días húmedos (PR ≥ 1 mm) consecutivos ***   
-                    Ejemplo: ETCCDI_insitu.cwd(archivo_entrada: str, archivo_salida: str) 
+                    Ejemplo: ETCCDI_in_situ.cwd(archivo_entrada: str, archivo_salida: str) 
                         
         *** SDII    ** Índice de intensidad diaria simple ***  
-                    Ejemplo: ETCCDI_insitu.sdii(archivo_entrada: str, archivo_salida: str) 
+                    Ejemplo: ETCCDI_in_situ.sdii(archivo_entrada: str, archivo_salida: str) 
 
         *** PRCPTOT    **** Precipitación total anual en días lluviosos (PR ≥ 1 mm) *** 
-                    Ejemplo: ETCCDI_insitu.     (infile: str, output_file: str)
+                    Ejemplo: ETCCDI_in_situ.     (infile: str, output_file: str)
 
         *** R95p    ** Días muy húmedos (días > Percentil 95th) ***
                     Periodo base actual: 1991 - 2020
                     Periodos anteriores: 1961 - 1990
                                          1981 - 2010
                                          
-                    Ejemplo: ETCCDI_insitu.r95p(archivo_entrada, archivo_salida, base_inicio, base_fin)
+                    Ejemplo: ETCCDI_in_situ.r95p(archivo_entrada, archivo_salida, base_inicio, base_fin)
                     
             
         *** R99p    ** Días muy húmedos (días > Percentil 99th) ***
                     Periodo base actual: 1991 - 2020
                     Periodos anteriores: 1961 - 1990
                                          1981 - 2010
-                    Ejemplo: ETCCDI_insitu.r99p(archivo_entrada, archivo_salida, base_inicio, base_fin)
+                    Ejemplo: ETCCDI_in_situ.r99p(archivo_entrada, archivo_salida, base_inicio, base_fin)
                                  
     
         *** Cada función tiene su descripción ***
@@ -1111,7 +1111,7 @@ class   ETCCDI_precip_insitu:
 # ─────────────────────────────────────────────────────────────────────────────
 # 3. Percentil de referencia (para años fuera del período base)
 # ─────────────────────────────────────────────────────────────────────────────
-        print("Calculando percentil de referencia del período base...")
+        print("Calculando el percentil de referencia del período base...")
         r95p = build_r95p(bp, None)
         print(f"  → {len(r95p)} entradas en r95p")
 
@@ -1314,7 +1314,7 @@ class   ETCCDI_precip_insitu:
 # ─────────────────────────────────────────────────────────────────────────────
 # 3. Percentil de referencia (para años fuera del período base)
 # ─────────────────────────────────────────────────────────────────────────────
-        print("Calculando percentil de referencia del período base...")
+        print("Calculando el percentil de referencia del período base...")
         r99p = build_r99p(bp, None)
         print(f"  → {len(r99p)} entradas en r99p")
 
