@@ -77,15 +77,15 @@ conda activate ETCCDI_precipitacion
 Enseguida escribir las siguientes líneas
 ```
 python -c "
-from ETCCDI_precipitacion import ETCCDI_precip_grid, ETCCDI_precip_insitu
-from ETCCDI_precipitacion import ETCCDI_precip_plot_insitu, ETCCDI_precip_plot_grid
+from ETCCDI_precipitacion import ETCCDI_precip_malla, ETCCDI_precip_in_situ
+from ETCCDI_precipitacion import ETCCDI_precip_plot_in_situ, ETCCDI_precip_plot_malla
 print('✅ Paquete instalado correctamente')
 "
 ```
 <br><br>
 Resultado esperado
 
-![Felicitaciones paquete "ETCCDI_precipitacion"](Verificacion_Instalacion_paquete.png) 
+![Felicitaciones paquete "ETCCDI_precipitacion"]() 
 
 
 # Asistencia
