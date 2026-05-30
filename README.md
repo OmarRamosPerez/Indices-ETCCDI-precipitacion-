@@ -1,5 +1,5 @@
 # Indices-ETCCDI-precipitacion
-Paquete en Python para calcular y graficar Índices Clímaticos de Precipitación ETCCDI para datos en malla (NetCDF) y InSitu (TXT)
+Paquete en Python para calcular y graficar índices climáticos de precipitación ETCCDI para datos en malla (NetCDF) y in situ (TXT)
 
 <br><br>
 
