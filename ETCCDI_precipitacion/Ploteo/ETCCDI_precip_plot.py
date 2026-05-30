@@ -14,14 +14,14 @@ warnings.simplefilter(action = "ignore", category = FutureWarning)
 
 ######################
 ###################
-# Estadisticos INSITU
+# Estadísticos in situ
 #######################
 #######################
 
 
 def mann_kendall_test(data):
         """
-        Perform Mann-Kendall trend test
+        Perform the Mann-Kendall trend test
     
         Parameters:
             data: array-like, time series data
@@ -71,7 +71,7 @@ def mann_kendall_test(data):
 
 def theil_sen_estimator_with_ci(x, y, confidence_level=0.95):
         """
-    Calculate Theil-Sen slope estimator with confidence intervals
+    Calculate the Theil-Sen slope estimator with confidence intervals
     
     Parameters:
     x: array-like, independent variable (time)
@@ -169,7 +169,7 @@ import pandas as pd
 
 ################################################################################
 ################################################################################
-class ETCCDI_precip_plot_insitu:
+class ETCCDI_precip_plot_in_situ:
     
     ######################
     ## Graficar FIGURA 
@@ -298,7 +298,7 @@ except ImportError:
 #  1. FUNCIONES DE TENDENCIA
 # ════════════════════════════════════════════════════════════
 
-def mann_kendall_test_grid(x):
+def mann_kendall_test_malla(x):
     """Mann-Kendall + Theil-Sen implementación propia."""
     x = np.asarray(x, dtype=float)
     n = len(x)
@@ -539,7 +539,7 @@ def guardar_resultados(lats, lons, tau_map, pval_map, pend_map,
 ###############################################################################
 ##########   GRAFICAR FIGURAS GRID (NETCDF)
 
-class ETCCDI_precip_plot_grid:
+class ETCCDI_precip_plot_malla:
     
     def Plot_netcdf_1_tiempo(Archivo_NETCDF, OUTPUT_FIG,
                              color_scale,
