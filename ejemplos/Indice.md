@@ -23,9 +23,12 @@ Estos índices se dividen en las siguientes categorías principales:
 
 Definiciones según [ETCCDI](http://etccdi.pacificclimate.org/list_27_indices.shtml)
 
-Este notebook muestra cómo importar y usar las funciones del paquete `ETCCDI_precipitacion`.
+<br><br>
+<!--
+Este notebook muestra cómo importar y usar las funciones del paquete .
+-->
 
-El paquete contiene **tres módulos principales**:
+El paquete `ETCCDI_precipitacion` contiene **tres módulos principales**:
 
 | Módulo | Clase | Descripción |
 |--------|-------|-------------|
@@ -37,7 +40,7 @@ El paquete contiene **tres módulos principales**:
 ---
 **Kernel recomendado:** `ETCCDI_precipitacion`
     
-
+<br><br>
 ## Datos
 
 Para los ejemplos de procesamiento y ploteo. 
