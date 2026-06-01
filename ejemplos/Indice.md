@@ -18,7 +18,7 @@ Estos índices se dividen en las siguientes categorías principales:
 |            |**CWD**| Días húmedos consecutivos  | Máx. número de días consecutivos cuando PR ≥ 1 mm | días |
 |-----------|----|--------|------------|----------|
 |**Percentiles**|**R95p**| Días muy húmedos | Precip. total anual o estacional acumulada en días > percentil 95 | mm |
-|**Percentiles**|**R99p**| Días extremadamente húmedos | Precip. total anual o estacional acumulada en días > percentil 99 | mm |
+|               |**R99p**| Días extremadamente húmedos | Precip. total anual o estacional acumulada en días > percentil 99 | mm |
 
 
 Definiciones según [ETCCDI](http://etccdi.pacificclimate.org/list_27_indices.shtml)
