@@ -25,7 +25,7 @@ Esto creará automáticamente el entorno llamado ETCCDI_precipitacion con todas 
 ⏳ Puede tardar varios minutos.
 
 ## 4) Activa el entorno
-Sin salir del anaconda promp
+Sin salir del Anaconda prompt
 ```
 conda activate ETCCDI_precipitacion
 ```
@@ -34,7 +34,7 @@ conda activate ETCCDI_precipitacion
 pip install -e .
 ```
 ## 6) Replicación de Ejemplos
-Instalar el entorno como kernel para que aparezca disponible en Jupyter.
+Sin salir del Anaconda prompt, instalar el entorno como kernel para que aparezca disponible en Jupyter.
 ```
 python -m ipykernel install --user --name ETCCDI_precipitacion --display-name "ETCCDI_precipitacion"
 ```
