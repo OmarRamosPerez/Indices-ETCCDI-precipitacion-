@@ -6,7 +6,7 @@ Estos índices se dividen en las siguientes categorías principales:
 
 | Categoría | ID | Nombre | Definición | Unidades |
 |-----------|----|--------|------------|----------|
-|**Frecuencia**|**R10**| Número de días de precipitación intensa | Conteo anual o estacional cuando PR ≥ 10 mm/año | días |
+|**Frecuencia**|**R10mm**| Número de días de precipitación intensa | Conteo anual o estacional cuando PR ≥ 10 mm/año | días |
 |              |**R20mm**| Número de días de precipitación muy intensa | Conteo anual o estacional cuando con PR ≥ 20 mm/año | días |
 |-----------|----|--------|------------|----------|
 |**Absolutos**|**Rx1day**| Máx. precipitación en 1 día  | Precip. máxima mensual en 1 día | mm |
