@@ -85,7 +85,7 @@ print('✅ Paquete instalado correctamente')
 <br><br>
 Resultado esperado
 
-![Felicitaciones paquete "ETCCDI_precipitacion"]() 
+![Felicitaciones paquete "ETCCDI_precipitacion"](Verificacion_Instalacion_paquete.png) 
 
 
 # Asistencia
