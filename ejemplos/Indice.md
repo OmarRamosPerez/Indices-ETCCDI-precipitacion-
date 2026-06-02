@@ -56,11 +56,15 @@ Los datos se pueden descargar de [Google Drive](https://drive.google.com/drive/f
 
   
 - # In Situ [Ejemplos in situ]()
-```
 
 
-```python
 ## Ploteo de datos 
-- # Malla [Ejemplos]()
-- # In Situ [Ejemplos in situ]()
-```
+- # Malla
+          -Frecuencia [Ejemplos]()
+      
+- # In Situ
+          -Frecuencia [Ejemplos]()
+
+
+  
+
