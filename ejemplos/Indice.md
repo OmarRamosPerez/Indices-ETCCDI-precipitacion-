@@ -51,11 +51,12 @@ Los datos se pueden descargar de [Google Drive](https://drive.google.com/drive/f
 ## Procesamiento de datos - Ejemplos 
 
 - # Malla
-      - Frecuencia [Ejemplos]()
+          - Frecuencia [Ejemplos]()
 
 
   
-- # In Situ [Ejemplos in situ]()
+- # In Situ
+         - Frecuencua [Ejemplos in situ]()
 
 
 ## Ploteo de datos 
