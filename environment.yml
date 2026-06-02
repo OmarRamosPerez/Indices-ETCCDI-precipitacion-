@@ -18,6 +18,7 @@ dependencies:
   - ipykernel
   - ipympl
   - xarray
+  - openpyxl
   - pip:
     - tqdm
     - pymannkendall
