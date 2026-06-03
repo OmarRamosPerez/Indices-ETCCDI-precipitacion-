@@ -602,11 +602,11 @@ class ETCCDI_precip_plot_malla:
         vmin = float(np.percentile(valid, 1)) if len(valid) > 0 else 0
         vmax = float(np.percentile(valid, 99.5))
 
-        if any(x in nombre_var.lower() for x in ['r10', 'r20', 'count', 'days']):
-            vmin = max(0.0, vmin)
-            vmax = min(250.0, vmax)
+ #       if any(x in nombre_var.lower() for x in ['r10', 'r20', 'count', 'days']):
+ #           vmin = max(0.0, vmin)
+ #           vmax = min(250.0, vmax)
 
-    #    print(f"   vmin/vmax final: {vmin:.2f} / {vmax:.2f}")
+ #       print(f"   vmin/vmax final: {vmin:.2f} / {vmax:.2f}")
 
         # ── FIGURA ─────────────────────────────────────────────────────
         projection = ccrs.PlateCarree()
