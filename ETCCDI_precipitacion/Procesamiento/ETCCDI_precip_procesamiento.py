@@ -106,7 +106,7 @@ class ETCCDI_precip_malla:
     
         cdo.etccdi_r10mm(input=archivo_entrada, output=archivo_salida)
         print("*****************************************")
-        print(f"R10mm ejecutado exitosamente. Archivo guardado: {archivo_salida}")
+        print(f"✅ Índice R10mm ejecutado exitosamente. Archivo guardado: {archivo_salida}")
         print("*****************************************")
 
 
@@ -124,7 +124,7 @@ class ETCCDI_precip_malla:
         
         cdo.etccdi_r20mm(input=archivo_entrada, output=archivo_salida)
         print("*****************************************")
-        print(f"R20mm ejecutado exitosamente. Archivo guardado: {archivo_salida}")
+        print(f"✅ Índice R20mm ejecutado exitosamente. Archivo guardado: {archivo_salida}")
         print("*****************************************")
 
 
@@ -141,7 +141,7 @@ class ETCCDI_precip_malla:
         """
         cdo.etccdi_rx1day(input=archivo_entrada, output=archivo_salida)
         print("*****************************************")
-        print(f"RX1day ejecutado exitosamente. Archivo guardado: {archivo_salida}")
+        print(f"✅ Índice RX1day ejecutado exitosamente. Archivo guardado: {archivo_salida}")
         print("*****************************************")
 
 
@@ -159,7 +159,7 @@ class ETCCDI_precip_malla:
         
         cdo.etccdi_rx5day(input=archivo_entrada, output=archivo_salida)
         print("*****************************************")
-        print(f"RX5day ejecutado exitosamente. Archivo guardado: {archivo_salida}")
+        print(f"✅ Índice RX5day ejecutado exitosamente. Archivo guardado: {archivo_salida}")
         print("*****************************************")
 
 
@@ -177,7 +177,7 @@ class ETCCDI_precip_malla:
 
         cdo.etccdi_cdd(input=archivo_entrada, output=archivo_salida)
         print("*****************************************")
-        print(f"CDD ejecutado exitosamente. Archivo guardado: {archivo_salida}")
+        print(f"✅ Índice CDD ejecutado exitosamente. Archivo guardado: {archivo_salida}")
         print("*****************************************")
 
         
@@ -195,7 +195,7 @@ class ETCCDI_precip_malla:
 
         cdo.etccdi_cwd(input=archivo_entrada, output=archivo_salida)
         print("*****************************************")
-        print(f"CWD ejecutado exitosamente. Archivo guardado: {archivo_salida}")
+        print(f"✅ Índice CWD ejecutado exitosamente. Archivo guardado: {archivo_salida}")
         print("*****************************************")
 
 
@@ -214,7 +214,7 @@ class ETCCDI_precip_malla:
 
         cdo.etccdi_sdii(input=archivo_entrada, output=archivo_salida)
         print("*****************************************")
-        print(f"SDII ejecutado exitosamente. Archivo guardado: {archivo_salida}")
+        print(f"✅ Índice SDII ejecutado exitosamente. Archivo guardado: {archivo_salida}")
         print("*****************************************")
 
 
@@ -241,7 +241,7 @@ class ETCCDI_precip_malla:
         cdo.yearsum(input=tmp_mul, output=archivo_salida)
         
         print("*****************************************")
-        print(f"PRCPTOT calculado exitosamente. Archivo guardado:  {archivo_salida}")
+        print(f"✅ Índice PRCPTOT calculado exitosamente. Archivo guardado:  {archivo_salida}")
         print("*****************************************")
 
 
@@ -331,7 +331,7 @@ class ETCCDI_precip_malla:
 
  #           logger.info("✅ R95p calculado → %s", archivo_salida)
             print("*****************************************")
-            print(f"R95P calculado exitosamente. Archivo guardado:  {archivo_salida}")
+            print(f"✅ Índice R95P calculado exitosamente. Archivo guardado:  {archivo_salida}")
             print("*****************************************")
 
 
@@ -426,7 +426,7 @@ class ETCCDI_precip_malla:
         #logger.info("✅ R99p calculado → %s", output_file)
         
             print("*****************************************")
-            print(f"R99P calculado exitosamente. Archivo guardado:  {archivo_salida}")
+            print(f"✅ Índice R99P calculado exitosamente. Archivo guardado:  {archivo_salida}")
             print("*****************************************")
 
 
@@ -545,7 +545,7 @@ class   ETCCDI_precip_in_situ:
         df_out.to_excel(archivo_salida, index=False)
 
         print("***************************************")
-        print(f"Índice R10mm ejecutado exitosamente. Archivo guardado: {archivo_salida}")
+        print(f"✅ Índice R10mm ejecutado exitosamente. Archivo guardado: {archivo_salida}")
         print("***************************************")
 
 
@@ -600,7 +600,7 @@ class   ETCCDI_precip_in_situ:
         df_out_r20.to_excel(archivo_salida, index=False)
         
         print("**************************")        
-        print(f"Índice R20 ejecutado exitosamente. Archivo guardado: {archivo_salida}")
+        print(f""✅ Índice R20 ejecutado exitosamente. Archivo guardado: {archivo_salida}")
         print("**************************")
 
 
@@ -661,7 +661,7 @@ class   ETCCDI_precip_in_situ:
         df_out_rx1day.to_excel(archivo_salida, index=False)
 
         print("**************************")        
-        print(f"Índice RX1day ejecutado exitosamente. Archivo guardado: {archivo_salida}")
+        print(f""✅ Índice RX1day ejecutado exitosamente. Archivo guardado: {archivo_salida}")
         print("**************************")        
                 
 
@@ -732,7 +732,7 @@ class   ETCCDI_precip_in_situ:
         df_out_rx5day.to_excel(archivo_salida, index=False)
 
         print("**************************")        
-        print(f"Índice RX5day ejecutado exitosamente. Archivo guardado: {archivo_salida}")
+        print(f""✅ Índice RX5day ejecutado exitosamente. Archivo guardado: {archivo_salida}")
         print("**************************")        
                   
     
@@ -802,7 +802,7 @@ class   ETCCDI_precip_in_situ:
         df_out_cdd.to_excel(archivo_salida, index=False)
 
         print("**************************")
-        print(f"Índice CDD ejecutado exitosamente. Archivo guardado: {archivo_salida}")
+        print(f""✅ Índice CDD ejecutado exitosamente. Archivo guardado: {archivo_salida}")
         print("**************************")    
     
 
@@ -869,7 +869,7 @@ class   ETCCDI_precip_in_situ:
         df_out_cwd.to_excel(archivo_salida, index=False)
         
         print("**************************")
-        print(f"Índice CWD ejecutado exitosamente. Archivo guardado: {archivo_salida}")
+        print(f""✅ Índice CWD ejecutado exitosamente. Archivo guardado: {archivo_salida}")
         print("**************************")
 
 
@@ -928,7 +928,7 @@ class   ETCCDI_precip_in_situ:
         # Set index=False to avoid writing the DataFrame index as an extra column in Excel
         df_out_sdii.to_excel(archivo_salida, index=False)
 
-        print(f"Índice SDII ejecutado exitosamente. Archivo guardado: {archivo_salida}")
+        print(f""✅ Índice SDII ejecutado exitosamente. Archivo guardado: {archivo_salida}")
         print("**************************")        
                    
 
@@ -983,7 +983,7 @@ class   ETCCDI_precip_in_situ:
         df_out_prcptot.to_excel(archivo_salida, index=False)
         
         print("**************************")   
-        print(f"Índice PRCPTOT ejecutado exitosamente. Archivo guardado: {archivo_salida}")
+        print(f""✅ Índice PRCPTOT ejecutado exitosamente. Archivo guardado: {archivo_salida}")
         print("**************************")   
 
 
@@ -1111,9 +1111,9 @@ class   ETCCDI_precip_in_situ:
 # ─────────────────────────────────────────────────────────────────────────────
 # 3. Percentil de referencia (para años fuera del período base)
 # ─────────────────────────────────────────────────────────────────────────────
-        print("Calculando el percentil de referencia del período base...")
+  #      print("Calculando el percentil de referencia del período base...")
         r95p = build_r95p(bp, None)
-        print(f"  → {len(r95p)} entradas en r95p")
+  #      print(f"  → {len(r95p)} entradas en r95p")
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 4. Helper: calcular R95p de un año dado r95p como lista
@@ -1137,7 +1137,7 @@ class   ETCCDI_precip_in_situ:
                       df_wet[df_wet.index.year > base_fin]])
         out_years, out_values = [], []
 
-        print(f"Calculando R95p para {len(df_out.index.year.unique())} años fuera del período base...")
+ #       print(f"Calculando R95p para {len(df_out.index.year.unique())} años fuera del período base...")
         for yr in sorted(df_out.index.year.unique()):
             yr_data = df_out[df_out.index.year == yr]
             out_values.append(calc_r95p_year(yr_data, r95p, leap_year(yr) == "True"))
@@ -1185,7 +1185,7 @@ class   ETCCDI_precip_in_situ:
                .reset_index(drop=True))
 
         df_output.to_excel(archivo_salida, index=False)
-        print(f"\nR95p Array successfully exported to {archivo_salida}")
+        print(f"\n"✅ Índice R95p ejecutado exitosamente. Archivo guardado: {archivo_salida}")
 
 
 
@@ -1314,9 +1314,9 @@ class   ETCCDI_precip_in_situ:
 # ─────────────────────────────────────────────────────────────────────────────
 # 3. Percentil de referencia (para años fuera del período base)
 # ─────────────────────────────────────────────────────────────────────────────
-        print("Calculando el percentil de referencia del período base...")
+ #       print("Calculando el percentil de referencia del período base...")
         r99p = build_r99p(bp, None)
-        print(f"  → {len(r99p)} entradas en r99p")
+#        print(f"  → {len(r99p)} entradas en r99p")
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 4. Helper: calcular r99p de un año dado r99p como lista
@@ -1340,7 +1340,7 @@ class   ETCCDI_precip_in_situ:
                       df_wet[df_wet.index.year > base_fin]])
         out_years, out_values = [], []
 
-        print(f"Calculando r99p para {len(df_out.index.year.unique())} años fuera del período base...")
+ #       print(f"Calculando r99p para {len(df_out.index.year.unique())} años fuera del período base...")
         for yr in sorted(df_out.index.year.unique()):
             yr_data = df_out[df_out.index.year == yr]
             out_values.append(calc_r99p_year(yr_data, r99p, leap_year(yr) == "True"))
@@ -1388,5 +1388,5 @@ class   ETCCDI_precip_in_situ:
                .reset_index(drop=True))
 
         df_output.to_excel(archivo_salida, index=False)
-        print(f"\nr99p Array successfully exported to {archivo_salida}")
+        print(f"\n ✅ índice R99p ejecutado exitosamente. Archivo guardado: {archivo_salida}")
 
