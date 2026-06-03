@@ -288,10 +288,10 @@ warnings.filterwarnings("ignore")
 try:
     import pymannkendall as mk
     USE_PYMANNKENDALL = True
-    print("✔  pymannkendall disponible.")
+#    print("✔  pymannkendall disponible.")
 except ImportError:
     USE_PYMANNKENDALL = False
-    print("⚠  pymannkendall no encontrado. Usando implementación propia (scipy).")
+#    print("⚠  pymannkendall no encontrado. Usando implementación propia (scipy).")
 
 
 # ════════════════════════════════════════════════════════════
@@ -381,7 +381,7 @@ def calcular_tendencia_punto(serie):
 def leer_netcdf(ruta_archivo, nombre_variable=None):
     """Lee el NetCDF aplicando escalado correctamente."""
     ds = nc.Dataset(ruta_archivo, 'r')
-    print(f"\n   Variables encontradas: {list(ds.variables.keys())}")
+#    print(f"\n   Variables encontradas: {list(ds.variables.keys())}")
 
     coord_lat = next((v for v in ds.variables if v.lower() in ('lat', 'latitude', 'rlat', 'y')), None)
     coord_lon = next((v for v in ds.variables if v.lower() in ('lon', 'longitude', 'rlon', 'x')), None)
@@ -393,7 +393,7 @@ def leer_netcdf(ruta_archivo, nombre_variable=None):
         excluir = {'time', 'tiempo', 'time_bnds', 'lon', 'lat', 'latitude', 'longitude', 'time_bounds'}
         candidatas = [v for v in ds.variables if v not in excluir and v not in ds.dimensions]
         nombre_variable = candidatas[0]
-        print(f"ℹ  Variable seleccionada automáticamente: '{nombre_variable}'")
+ #       print(f"ℹ  Variable seleccionada automáticamente: '{nombre_variable}'")
 
     var = ds.variables[nombre_variable]
     long_name = getattr(var, 'long_name', nombre_variable)
@@ -414,7 +414,7 @@ def leer_netcdf(ruta_archivo, nombre_variable=None):
         datos[np.isclose(datos, float(fill_value), rtol=1e-5, atol=1e8)] = np.nan
 
     if datos.ndim == 3:
-        print(f"   Array 3D con {datos.shape[0]} pasos de tiempo.")
+ #       print(f"   Array 3D con {datos.shape[0]} pasos de tiempo.")
 
     ds.close()
     return datos, lats, lons, nombre_variable, long_name, units
@@ -573,7 +573,7 @@ class ETCCDI_precip_plot_malla:
             scale_factor = getattr(var, 'scale_factor', 1.0)
             add_offset   = getattr(var, 'add_offset', 0.0)
             data_array = np.asarray(data_raw, dtype=float) * scale_factor + add_offset
-            print(f"   Aplicado: scale_factor={scale_factor}, add_offset={add_offset}")
+     #       print(f"   Aplicado: scale_factor={scale_factor}, add_offset={add_offset}")
         else:
             data_array = np.asarray(data_raw, dtype=float)
 
