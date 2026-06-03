@@ -51,11 +51,11 @@ Los datos se pueden descargar de [Google Drive](https://drive.google.com/drive/f
 ## Procesamiento de datos - Ejemplos 
 
 # Malla
-Frecuencia [Ejemplos](ejemplos/Indices_frecuencia_malla.ipynb)
+Frecuencia [Ejemplos](Indices_frecuencia_malla.ipynb)
 
   
 # In Situ
-Frecuencia [Ejemplos in situ](ejemplos/Indices_frecuencia_in_situ.ipynb)
+Frecuencia [Ejemplos in situ](Indices_frecuencia_in_situ.ipynb)
 
 
 ## Ploteo de datos 
