@@ -175,7 +175,7 @@ class ETCCDI_precip_plot_in_situ:
     ## Graficar FIGURA 
     #######
     
-    def plot(archivo_excel, salida_plot, salida_excel):
+    def plot(archivo_excel, salida_figura, salida_excel):
     
 # Load the Excel file (first sheet by default)
         df = pd.read_excel(archivo_excel)
@@ -266,7 +266,8 @@ class ETCCDI_precip_plot_in_situ:
 
     
         plt.tight_layout()
-        plt.savefig(output_plot, dpi=150, bbox_inches='tight')
+        plt.savefig(salida_figura, dpi=150, bbox_inches='tight')
+        print("✅Figura guardada correctamente: {salida_figura}")            
         plt.show()
 
 
@@ -275,14 +276,10 @@ class ETCCDI_precip_plot_in_situ:
 
 # Exportar a Excel
         df.to_excel(output_excel, index=False)
-        print("✅ Archivo de estadísticas exportado: {archivo_} ")
+        print("✅ Archivo de estadísticas exportado: {salida_excel} ")
 
 
         return results, df
-
-        
-
-        return results
 
 
 ###############################################################################################
@@ -513,7 +510,7 @@ def _guardar(fig, archivo):
     plt.tight_layout()
     plt.savefig(archivo, dpi=150,
                 bbox_inches='tight', facecolor=fig.get_facecolor())
-    print(f"✅  Guardada: {archivo}")
+    print(f"✅ Figura guardada correctamente: {archivo}")
     plt.show()
     plt.close(fig)
 
