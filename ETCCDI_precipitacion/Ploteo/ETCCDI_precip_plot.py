@@ -587,9 +587,9 @@ class ETCCDI_precip_plot_malla:
         # Primer tiempo si es 3D
         if data_array.ndim == 3:
             data_array = data_array[0, :, :]
-            print("   Usando primer paso de tiempo")
+  #          print("   Usando primer paso de tiempo")
 
-        print(f"   Min/Max: {np.nanmin(data_array):.2f} / {np.nanmax(data_array):.2f}")
+   #     print(f"   Min/Max: {np.nanmin(data_array):.2f} / {np.nanmax(data_array):.2f}")
 
         # Extraer coordenadas ANTES de cerrar
         lons = ds.variables['lon'][:]
@@ -606,7 +606,7 @@ class ETCCDI_precip_plot_malla:
             vmin = max(0.0, vmin)
             vmax = min(250.0, vmax)
 
-        print(f"   vmin/vmax final: {vmin:.2f} / {vmax:.2f}")
+    #    print(f"   vmin/vmax final: {vmin:.2f} / {vmax:.2f}")
 
         # ── FIGURA ─────────────────────────────────────────────────────
         projection = ccrs.PlateCarree()
