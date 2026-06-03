@@ -927,7 +927,8 @@ class   ETCCDI_precip_in_situ:
         ## 3. Save the DataFrame to an Excel file (.xlsx)
         # Set index=False to avoid writing the DataFrame index as an extra column in Excel
         df_out_sdii.to_excel(archivo_salida, index=False)
-
+        
+        print("**************************")        
         print(f""✅ Índice SDII ejecutado exitosamente. Archivo guardado: {archivo_salida}")
         print("**************************")        
                    
