@@ -175,7 +175,7 @@ class ETCCDI_precip_plot_in_situ:
     ## Graficar FIGURA 
     #######
     
-    def plot(archivo_excel, output_plot):
+    def plot(archivo_excel, salida_plot, salida_excel):
     
 # Load the Excel file (first sheet by default)
         df = pd.read_excel(archivo_excel)
@@ -268,6 +268,19 @@ class ETCCDI_precip_plot_in_situ:
         plt.tight_layout()
         plt.savefig(output_plot, dpi=150, bbox_inches='tight')
         plt.show()
+
+
+        # Convertir diccionario a DataFrame de Pandas
+        df = pd.DataFrame(results)
+
+# Exportar a Excel
+        df.to_excel(output_excel, index=False)
+        print("✅ Archivo de estadísticas exportado: {archivo_} ")
+
+
+        return results, df
+
+        
 
         return results
 
@@ -541,7 +554,7 @@ def guardar_resultados(lats, lons, tau_map, pval_map, pend_map,
 
 class ETCCDI_precip_plot_malla:
     
-    def Plot_netcdf_1_tiempo(Archivo_NETCDF, OUTPUT_FIG,
+    def Plot_netcdf_1_tiempo(Archivo_NETCDF, Salida_FIGURA,
                              color_scale,
                              center_cmap=False,
                              levels=None,
@@ -651,8 +664,8 @@ class ETCCDI_precip_plot_malla:
              draw_labels=False, linewidth=0.25, linestyle='--')
 
         plt.tight_layout()
-        plt.savefig(OUTPUT_FIG, dpi=200, bbox_inches='tight', facecolor='white')
-        print(f"✅ Figura guardada correctamente: {OUTPUT_FIG}")
+        plt.savefig(SALIDA_FIG, dpi=200, bbox_inches='tight', facecolor='white')
+        print(f"✅ Figura guardada correctamente: {SALIDA_FIG}")
         plt.show()
         plt.close(fig)
 
@@ -666,7 +679,7 @@ class ETCCDI_precip_plot_malla:
 #  4D. FIGURA 4 — Mapa de tendencias + significancia
 # ════════════════════════════════════════════════════════════
  
-    def plot_netcdf_n_tiempos(ARCHIVO_NC, OUTPUT_FIG, OUTPUT_NC, color_scale):
+    def plot_netcdf_n_tiempos(ARCHIVO_NC, SALIDA_FIG, SALIDA_NC, color_scale):
         print(f"\n📂 Leyendo: {ARCHIVO_NC}")
         VARIABLE = None
         
@@ -711,12 +724,12 @@ class ETCCDI_precip_plot_malla:
  #       ax.set_title(f'{long_name}\nTendencias significativas: {n_sig}/{n_tot} ({pct_sig:.1f}%) | α=0.05',
  #                    color='black', fontsize=12, fontweight='bold', pad=10)
         
-        _guardar(fig, OUTPUT_FIG)
+        _guardar(fig, SALIDA_FIG)
  
  
         guardar_resultados(lats, lons, tau_map, pval_map, pend_map,
                    sig_map, tend_map, nombre_var,
-                   archivo_salida=OUTPUT_NC)
+                   archivo_salida=SALIDA_NC)
 
 
 # #     # Print summary table
