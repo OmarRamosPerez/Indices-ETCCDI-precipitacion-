@@ -50,11 +50,11 @@ Los datos se pueden descargar de [Google Drive](https://drive.google.com/drive/f
 
 ## Procesamiento de datos - Ejemplos 
 
-- # Malla
+# Malla
 Frecuencia [Ejemplos](ejemplos/Indices_frecuencia_malla.ipynb)
 
   
-- # In Situ
+# In Situ
 Frecuencia [Ejemplos in situ](ejemplos/Indices_frecuencia_in_situ.ipynb)
 
 
