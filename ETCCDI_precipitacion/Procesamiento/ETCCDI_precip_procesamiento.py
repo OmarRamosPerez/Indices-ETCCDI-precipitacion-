@@ -600,7 +600,7 @@ class   ETCCDI_precip_in_situ:
         df_out_r20.to_excel(archivo_salida, index=False)
         
         print("**************************")        
-        print(f""✅ Índice R20 ejecutado exitosamente. Archivo guardado: {archivo_salida}")
+        print(f""✅ Índice R20mm ejecutado exitosamente. Archivo guardado: {archivo_salida}")
         print("**************************")
 
 
@@ -1186,7 +1186,10 @@ class   ETCCDI_precip_in_situ:
                .reset_index(drop=True))
 
         df_output.to_excel(archivo_salida, index=False)
+        
+        print("**************************")   
         print(f"\n"✅ Índice R95p ejecutado exitosamente. Archivo guardado: {archivo_salida}")
+        print("**************************")   
 
 
 
@@ -1389,5 +1392,8 @@ class   ETCCDI_precip_in_situ:
                .reset_index(drop=True))
 
         df_output.to_excel(archivo_salida, index=False)
-        print(f"\n ✅ índice R99p ejecutado exitosamente. Archivo guardado: {archivo_salida}")
-
+        
+        print("**************************")   
+        print(f"\n ✅ Índice R99p ejecutado exitosamente. Archivo guardado: {archivo_salida}")
+        print("**************************")   
+        
