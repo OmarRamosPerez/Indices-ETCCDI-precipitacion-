@@ -175,7 +175,7 @@ class ETCCDI_precip_plot_in_situ:
     ## Graficar FIGURA 
     #######
     
-    def plot(archivo_excel, salida_figura, salida_excel):
+    def plot(archivo_excel: str, salida_figura: str, salida_excel:str):
     
 # Load the Excel file (first sheet by default)
         df = pd.read_excel(archivo_excel)
@@ -551,8 +551,8 @@ def guardar_resultados(lats, lons, tau_map, pval_map, pend_map,
 
 class ETCCDI_precip_plot_malla:
     
-    def Plot_netcdf_1_tiempo(Archivo_NETCDF, Salida_FIGURA,
-                             color_scale,
+    def Plot_netcdf_1_tiempo(Archivo_NETCDF: str, Salida_FIGURA: str,
+                             color_scale: str,
                              center_cmap=False,
                              levels=None,
                              set_global=False,
@@ -676,7 +676,7 @@ class ETCCDI_precip_plot_malla:
 #  4D. FIGURA 4 — Mapa de tendencias + significancia
 # ════════════════════════════════════════════════════════════
  
-    def plot_netcdf_n_tiempos(ARCHIVO_NC, SALIDA_FIG, SALIDA_NC, color_scale):
+    def plot_netcdf_n_tiempos(ARCHIVO_NC: str, SALIDA_FIG: str, SALIDA_NC: str, color_scale: str):
         print(f"\n📂 Leyendo: {ARCHIVO_NC}")
         VARIABLE = None
         
