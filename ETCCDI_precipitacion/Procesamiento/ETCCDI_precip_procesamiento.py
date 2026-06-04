@@ -600,7 +600,7 @@ class   ETCCDI_precip_in_situ:
         df_out_r20.to_excel(archivo_salida, index=False)
         
         print("**************************")        
-        print(f""✅ Índice R20mm ejecutado exitosamente. Archivo guardado: {archivo_salida}")
+        print(f"✅ Índice R20mm ejecutado exitosamente. Archivo guardado: {archivo_salida}")
         print("**************************")
 
 
@@ -661,7 +661,7 @@ class   ETCCDI_precip_in_situ:
         df_out_rx1day.to_excel(archivo_salida, index=False)
 
         print("**************************")        
-        print(f""✅ Índice RX1day ejecutado exitosamente. Archivo guardado: {archivo_salida}")
+        print(f"✅ Índice RX1day ejecutado exitosamente. Archivo guardado: {archivo_salida}")
         print("**************************")        
                 
 
@@ -732,7 +732,7 @@ class   ETCCDI_precip_in_situ:
         df_out_rx5day.to_excel(archivo_salida, index=False)
 
         print("**************************")        
-        print(f""✅ Índice RX5day ejecutado exitosamente. Archivo guardado: {archivo_salida}")
+        print(f"✅ Índice RX5day ejecutado exitosamente. Archivo guardado: {archivo_salida}")
         print("**************************")        
                   
     
@@ -802,7 +802,7 @@ class   ETCCDI_precip_in_situ:
         df_out_cdd.to_excel(archivo_salida, index=False)
 
         print("**************************")
-        print(f""✅ Índice CDD ejecutado exitosamente. Archivo guardado: {archivo_salida}")
+        print(f"✅ Índice CDD ejecutado exitosamente. Archivo guardado: {archivo_salida}")
         print("**************************")    
     
 
@@ -869,7 +869,7 @@ class   ETCCDI_precip_in_situ:
         df_out_cwd.to_excel(archivo_salida, index=False)
         
         print("**************************")
-        print(f""✅ Índice CWD ejecutado exitosamente. Archivo guardado: {archivo_salida}")
+        print(f"✅ Índice CWD ejecutado exitosamente. Archivo guardado: {archivo_salida}")
         print("**************************")
 
 
@@ -929,7 +929,7 @@ class   ETCCDI_precip_in_situ:
         df_out_sdii.to_excel(archivo_salida, index=False)
         
         print("**************************")        
-        print(f""✅ Índice SDII ejecutado exitosamente. Archivo guardado: {archivo_salida}")
+        print(f"✅ Índice SDII ejecutado exitosamente. Archivo guardado: {archivo_salida}")
         print("**************************")        
                    
 
@@ -984,7 +984,7 @@ class   ETCCDI_precip_in_situ:
         df_out_prcptot.to_excel(archivo_salida, index=False)
         
         print("**************************")   
-        print(f""✅ Índice PRCPTOT ejecutado exitosamente. Archivo guardado: {archivo_salida}")
+        print(f"✅ Índice PRCPTOT ejecutado exitosamente. Archivo guardado: {archivo_salida}")
         print("**************************")   
 
 
@@ -1188,7 +1188,7 @@ class   ETCCDI_precip_in_situ:
         df_output.to_excel(archivo_salida, index=False)
         
         print("**************************")   
-        print(f"\n"✅ Índice R95p ejecutado exitosamente. Archivo guardado: {archivo_salida}")
+        print(f"\n✅ Índice R95p ejecutado exitosamente. Archivo guardado: {archivo_salida}")
         print("**************************")   
 
 
