@@ -423,7 +423,7 @@ def leer_netcdf(ruta_archivo, nombre_variable=None):
     if fill_value is not None:
         datos[np.isclose(datos, float(fill_value), rtol=1e-5, atol=1e8)] = np.nan
 
-    if datos.ndim == 3:
+ #   if datos.ndim == 3:
  #       print(f"   Array 3D con {datos.shape[0]} pasos de tiempo.")
 
     ds.close()
