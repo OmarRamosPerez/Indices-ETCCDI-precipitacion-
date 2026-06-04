@@ -267,8 +267,13 @@ class ETCCDI_precip_plot_in_situ:
     
         plt.tight_layout()
         plt.savefig(salida_figura, dpi=150, bbox_inches='tight')
+        print("********************")
         print("✅Figura guardada correctamente: {salida_figura}")            
-        plt.show()
+        print("✅ Archivo de estadísticas exportado: {salida_excel} ")
+        print("********************")
+
+            
+        #plt.show()
 
 
         # Convertir diccionario a DataFrame de Pandas
@@ -276,8 +281,7 @@ class ETCCDI_precip_plot_in_situ:
 
 # Exportar a Excel
         df.to_excel(salida_excel, index=False)
-        print("✅ Archivo de estadísticas exportado: {salida_excel} ")
-
+        
 
         return results, df
 
@@ -443,7 +447,7 @@ def calcular_tendencias_grilla(datos):
     sig_map       = np.zeros((nlat, nlon), dtype=bool)
     tend_map      = np.zeros((nlat, nlon), dtype=int)
 
-    print(f"\n📊 Procesando {nlat}×{nlon} = {nlat*nlon} puntos de malla...")
+#    print(f"\n📊 Procesando {nlat}×{nlon} = {nlat*nlon} puntos de malla...")
     with tqdm(total=nlat * nlon, ncols=70, unit='pts') as pbar:
         for i in range(nlat):
             for j in range(nlon):
@@ -510,8 +514,13 @@ def _guardar(fig, archivo):
     plt.tight_layout()
     plt.savefig(archivo, dpi=150,
                 bbox_inches='tight', facecolor=fig.get_facecolor())
+    
+    print("************************")
     print(f"✅ Figura guardada correctamente: {archivo}")
-    plt.show()
+    print("************************")
+
+   # plt.show()
+    
     plt.close(fig)
 
 
@@ -541,7 +550,10 @@ def guardar_resultados(lats, lons, tau_map, pval_map, pend_map,
  
     ds.description = f'Tendencias de {nombre_var}. Mann-Kendall, Theil-Sen, Kendall Tau.'
     ds.close()
-    print(f"✅  NetCDF de resultados guardado: {archivo_salida}")
+                               
+    print("************************")
+    print(f"✅  NetCDF de estadísticos guardado: {archivo_salida}")
+    print("************************")
 
 
 
@@ -564,13 +576,13 @@ class ETCCDI_precip_plot_malla:
         import netCDF4 as nc
         import numpy as np
 
-        print(f"\n📂 Leyendo con netCDF4: {Archivo_NETCDF}")
+#        print(f"\n📂 Leyendo con netCDF4: {Archivo_NETCDF}")
         ds = nc.Dataset(Archivo_NETCDF, 'r')
 
         # Detectar variable principal
         var_names = [v for v in ds.variables if v not in ds.dimensions and v.lower() not in ['time', 'tiempo']]
         nombre_var = var_names[0] if var_names else list(ds.variables.keys())[0]
-        print(f"ℹ  Variable: '{nombre_var}'")
+#        print(f"ℹ  Variable: '{nombre_var}'")
 
         var = ds.variables[nombre_var]
         long_name = getattr(var, 'long_name', nombre_var)
@@ -662,8 +674,12 @@ class ETCCDI_precip_plot_malla:
 
         plt.tight_layout()
         plt.savefig(SALIDA_FIG, dpi=200, bbox_inches='tight', facecolor='white')
-        print(f"✅ Figura guardada correctamente: {SALIDA_FIG}")
-        plt.show()
+
+        print("************************")
+        print(f"✅ Figura guardada correctamente: {Salida_FIGURA}")
+        print("************************")
+
+#        plt.show()
         plt.close(fig)
 
         return fig, ax, img
@@ -677,7 +693,7 @@ class ETCCDI_precip_plot_malla:
 # ════════════════════════════════════════════════════════════
  
     def plot_netcdf_n_tiempos(ARCHIVO_NC: str, SALIDA_FIG: str, SALIDA_NC: str, color_scale: str):
-        print(f"\n📂 Leyendo: {ARCHIVO_NC}")
+#        print(f"\n📂 Leyendo: {ARCHIVO_NC}")
         VARIABLE = None
         
         datos, lats, lons, nombre_var, long_name, units = leer_netcdf(ARCHIVO_NC, VARIABLE)
