@@ -268,8 +268,13 @@ class ETCCDI_precip_plot_in_situ:
         plt.tight_layout()
         plt.savefig(salida_figura, dpi=150, bbox_inches='tight')
         print("********************")
-        print("✅Figura guardada correctamente: {salida_figura}")            
-        print("✅ Archivo de estadísticas exportado: {salida_excel} ")
+        print(f"✅Figura guardada correctamente: {salida_figura}")
+        print("********************")
+
+            
+            
+        print("********************")
+        print(f"✅ Archivo de estadísticas exportado: {salida_excel} ")
         print("********************")
 
             
