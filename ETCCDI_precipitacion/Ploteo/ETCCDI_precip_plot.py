@@ -678,7 +678,7 @@ class ETCCDI_precip_plot_malla:
              draw_labels=False, linewidth=0.25, linestyle='--')
 
         plt.tight_layout()
-        plt.savefig(SALIDA_FIG, dpi=200, bbox_inches='tight', facecolor='white')
+        plt.savefig(Salida_FIGURA, dpi=200, bbox_inches='tight', facecolor='white')
 
         print("************************")
         print(f"✅ Figura guardada correctamente: {Salida_FIGURA}")
