@@ -275,7 +275,7 @@ class ETCCDI_precip_plot_in_situ:
         df = pd.DataFrame(results)
 
 # Exportar a Excel
-        df.to_excel(output_excel, index=False)
+        df.to_excel(salida_excel, index=False)
         print("✅ Archivo de estadísticas exportado: {salida_excel} ")
 
 
