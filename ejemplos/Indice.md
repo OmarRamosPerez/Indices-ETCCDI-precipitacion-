@@ -60,10 +60,10 @@ Frecuencia [Ejemplos](Indices_frecuencia_in_situ.ipynb)
 
 ## Ploteo de datos 
 - # Malla
-  Frecuencia [Ejemplos](Indices_frecuencia_ploteo_in_situ.ipynb)
+  Frecuencia [Ejemplos](Indices_frecuencia_ploteo_malla.ipynb)
       
 - # In Situ
-          -Frecuencia [Ejemplos]()
+  Frecuencia [Ejemplos](Indices_frecuencia_ploteo_in_situ.ipynb)
 
 
   
