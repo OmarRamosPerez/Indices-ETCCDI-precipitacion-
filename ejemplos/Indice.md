@@ -51,9 +51,9 @@ Los datos se pueden descargar de [Google Drive](https://drive.google.com/drive/f
 ## Procesamiento de datos - Ejemplos 
 
 # Malla
-Frecuencia [Ejemplos](Indices_frecuencia_malla.ipynb) \
-Duración [Ejemplos](Indices_duracion_malla.ipynb) \
-Percentiles [Ejemplos]()
+- Frecuencia [Ejemplos](Indices_frecuencia_malla.ipynb) \
+- Duración [Ejemplos](Indices_duracion_malla.ipynb) \
+- Percentiles [Ejemplos]()
 
   
 # In Situ
