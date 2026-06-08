@@ -371,17 +371,17 @@ def calcular_tendencia_punto(serie):
         pendiente  = float(res.slope)
         intercepto = float(res.intercept)
     else:
-        # === CORRECCIÓN AQUÍ ===
         tau, p_value, trend_str, z_stat = mann_kendall_test(x)
-        # Calcular pendiente con Theil-Sen (más confiable)
         t = np.arange(len(x))
         pendiente, intercepto, _, _ = theil_sen_estimator_with_ci(t, x)
 
-    # Conversión segura a float
-    pendiente = float(pendiente) if not np.isnan(pendiente) else 0.0
-    tau       = float(tau)
-    p_valor   = float(p_value)
+        # ✅ Conversión aquí dentro, con el nombre correcto
+        pendiente  = float(pendiente) if not np.isnan(pendiente) else 0.0
+        tau        = float(tau)
+        p_valor    = float(p_value)   # ← p_value → p_valor
+        intercepto = float(intercepto)
 
+        
     resultado.update(
         tau=tau,
         p_valor=p_valor,
