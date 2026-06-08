@@ -66,7 +66,7 @@ Los datos se pueden descargar de [Google Drive](https://drive.google.com/drive/f
 # Ploteo de datos 
  Malla
 - Frecuencia [Ejemplos](Indices_frecuencia_ploteo_malla.ipynb) 
-- Duración [Ejemplos]()  
+- Duración [Ejemplos](Indices_Duracion_ploteo_malla.ipynb)  
 
 
       
