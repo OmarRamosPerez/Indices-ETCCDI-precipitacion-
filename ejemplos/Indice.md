@@ -52,19 +52,27 @@ Los datos se pueden descargar de [Google Drive](https://drive.google.com/drive/f
 
 # Malla
 Frecuencia [Ejemplos](Indices_frecuencia_malla.ipynb)
+Duración [Ejemplos]()
+Percentiles [Ejemplos]()
 
   
 # In Situ
 Frecuencia [Ejemplos](Indices_frecuencia_in_situ.ipynb)
+Duración [Ejemplos]()
+Percentiles [Ejemplos]()
+
 
 
 ## Ploteo de datos 
-- # Malla
-  Frecuencia [Ejemplos](Indices_frecuencia_ploteo_malla.ipynb)
-      
-- # In Situ
-  Frecuencia [Ejemplos](Indices_frecuencia_ploteo_in_situ.ipynb)
+# Malla
+Frecuencia [Ejemplos](Indices_frecuencia_ploteo_malla.ipynb)
+Duración [Ejemplos]()  
 
+
+      
+# In Situ
+Frecuencia [Ejemplos](Indices_frecuencia_ploteo_in_situ.ipynb)
+Duración [Ejemplos]()
 
   
 
