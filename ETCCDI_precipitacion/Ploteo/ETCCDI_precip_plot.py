@@ -498,9 +498,16 @@ def _base_ax(fig, lats, lons):
  
 def _pcolormesh_cb(fig, ax, proj, lons, lats, data2d, cmap,
                    vmin, vmax, cb_label):
-    """Pinta pcolormesh + colorbar horizontal."""
-    vn = vmin if vmin is not None else np.nanpercentile(data2d, 2)
-    vx = vmax if vmax is not None else np.nanpercentile(data2d, 98)
+    """Pinta pcolormesh + colorbar horizontal centrada en 0."""
+    if vmin is None and vmax is None:
+        # Límite simétrico: el 0 queda exactamente en el centro del colormap
+        abs_max = max(abs(np.nanpercentile(data2d, 2)),
+                      abs(np.nanpercentile(data2d, 98)))
+        vn, vx = -abs_max, abs_max
+    else:
+        vn = vmin if vmin is not None else np.nanpercentile(data2d, 2)
+        vx = vmax if vmax is not None else np.nanpercentile(data2d, 98)
+
     im = ax.pcolormesh(lons, lats, data2d,
                        cmap=cmap, vmin=vn, vmax=vx,
                        transform=proj, zorder=1,
@@ -510,7 +517,7 @@ def _pcolormesh_cb(fig, ax, proj, lons, lats, data2d, cmap,
     cb.set_label(cb_label, color='black', fontsize=9)
     cb.ax.tick_params(labelcolor='black', labelsize=8, colors='black')
     cb.outline.set_edgecolor('black')
- 
+                           
  
 def _guardar(fig, archivo):
     """Título, guardado y cierre."""
