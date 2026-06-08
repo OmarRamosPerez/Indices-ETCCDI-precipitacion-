@@ -41,30 +41,30 @@ El paquete `ETCCDI_precipitacion` contiene **tres módulos principales**:
 **Kernel recomendado:** `ETCCDI_precipitacion`
     
 <br><br>
-## Datos
+# Datos
 
 Para los ejemplos de procesamiento y ploteo. 
 
 Los datos se pueden descargar de [Google Drive](https://drive.google.com/drive/folders/1zQotdaKFL3T5ik-g8XgVgNiNfvbWxYvJ?usp=drive_link)
 
+<br><br>
+# Procesamiento de datos - Ejemplos 
 
-## Procesamiento de datos - Ejemplos 
-
-# Malla
+## Malla
 - Frecuencia [Ejemplos](Indices_frecuencia_malla.ipynb) 
 - Duración [Ejemplos](Indices_duracion_malla.ipynb) 
 - Percentiles [Ejemplos]()
 
   
-# In Situ
+## In Situ
 - Frecuencia [Ejemplos](Indices_frecuencia_in_situ.ipynb) 
 - Duración [Ejemplos]() 
 - Percentiles [Ejemplos]()
 
 
-
-## Ploteo de datos 
-# Malla
+<br><br>
+# Ploteo de datos 
+ Malla
 - Frecuencia [Ejemplos](Indices_frecuencia_ploteo_malla.ipynb) 
 - Duración [Ejemplos]()  
 
