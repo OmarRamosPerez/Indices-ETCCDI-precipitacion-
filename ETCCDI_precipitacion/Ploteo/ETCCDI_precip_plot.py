@@ -697,11 +697,11 @@ class ETCCDI_precip_plot_malla:
 #  4D. FIGURA 4 — Mapa de tendencias + significancia
 # ════════════════════════════════════════════════════════════
  
-    def plot_netcdf_n_tiempos(ARCHIVO_NC: str, SALIDA_FIG: str, SALIDA_NC: str, color_scale: str):
+    def plot_netcdf_n_tiempos(Archivo_NC: str, Salida_FIG: str, Salida_NC: str, color_scale: str):
 #        print(f"\n📂 Leyendo: {ARCHIVO_NC}")
         VARIABLE = None
         
-        datos, lats, lons, nombre_var, long_name, units = leer_netcdf(ARCHIVO_NC, VARIABLE)
+        datos, lats, lons, nombre_var, long_name, units = leer_netcdf(Archivo_NC, VARIABLE)
         
         # Calcular tendencias
         tau_map, pval_map, pend_map, sig_map, tend_map = calcular_tendencias_grilla(datos)
@@ -742,12 +742,12 @@ class ETCCDI_precip_plot_malla:
  #       ax.set_title(f'{long_name}\nTendencias significativas: {n_sig}/{n_tot} ({pct_sig:.1f}%) | α=0.05',
  #                    color='black', fontsize=12, fontweight='bold', pad=10)
         
-        _guardar(fig, SALIDA_FIG)
+        _guardar(fig, Salida_FIG)
  
  
         guardar_resultados(lats, lons, tau_map, pval_map, pend_map,
                    sig_map, tend_map, nombre_var,
-                   archivo_salida=SALIDA_NC)
+                   archivo_salida=Salida_NC)
 
 
 # #     # Print summary table
