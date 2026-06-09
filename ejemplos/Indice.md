@@ -28,14 +28,14 @@ Definiciones según [ETCCDI](http://etccdi.pacificclimate.org/list_27_indices.sh
 Este notebook muestra cómo importar y usar las funciones del paquete .
 -->
 
-El paquete `ETCCDI_precipitacion` contiene **tres módulos principales**:
+El paquete `ETCCDI_precipitacion` contiene **dos módulos principales**:
 
 | Módulo | Clase | Descripción |
 |--------|-------|-------------|
 | `Procesamiento` | `ETCCDI_precip_malla` | Índices sobre datos en malla NetCDF (usa CDO) |
-| `Procesamiento` | `ETCCDI_precip_in_situ` | Índices sobre datos de estación (`.txt` → `.xlsx`) |
+|  | `ETCCDI_precip_in_situ` | Índices sobre datos de estación (`.txt` → `.xlsx`) |
 | `Ploteo` | `ETCCDI_precip_plot_in_situ` | Gráficas de series temporales con tendencia (in situ) |
-| `Ploteo` | `ETCCDI_precip_plot_malla` | Mapas de índices y tendencias (NetCDF) |
+|  | `ETCCDI_precip_plot_malla` | Mapas de índices y tendencias (NetCDF) |
 
 ---
 **Kernel recomendado:** `ETCCDI_precipitacion`
