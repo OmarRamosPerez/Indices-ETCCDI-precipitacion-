@@ -10,22 +10,16 @@ Paquete en Python para calcular y graficar índices climáticos de precipitació
 
 
 # Tutorial
-
-
 Aquí encontrarás la definición de los índices y ejemplos de cuadernos de Jupyter. [Enlace](ejemplos/Indice.md)
-
-
 <br><br>
 
 
 
 # Instalación paso a paso
-<br><br>
-
 - [Windows](Instalacion/Instalacion_ETCCDI-precipitacion_Windows.md) 
 - [Linux](Instalacion/Instalacion_ETCCDI-precipitacion_Linux.md)
 - [MacOS](Instalacion/Instalacion_ETCCDI-precipitacion_MacOS.md)
-
+<br><br>
 <!--
 ##3.1 Instalación en Linux (Ubuntu / Debian)
 
@@ -68,7 +62,6 @@ python3 -c "from ETCCDI_precipitacion.Procesamiento import ETCCDI_precip_procesa
 -->
 
 # Verificación de instalación
-<br><br>
 
 En una nueva anaconda prompt o terminal, activar el entorno "ETCCDI_precipitacion"
 ```
@@ -87,7 +80,7 @@ Resultado esperado
 
 ![Felicitaciones paquete "ETCCDI_precipitacion"](Verificacion_Instalacion_paquete.png) 
 
-
+<br><br>
 # Asistencia
 
 Si tienes alguna pregunta, no dudes en escribir a:
