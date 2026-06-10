@@ -84,8 +84,8 @@ Resultado esperado
 # Asistencia
 
 Si tienes alguna pregunta, no dudes en escribir a:
-
+```
 omar.ramos@unison.mx
-
+```
 
 Puedes escribirme en español o inglés. 
