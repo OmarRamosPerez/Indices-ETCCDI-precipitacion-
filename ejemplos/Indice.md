@@ -34,7 +34,7 @@ El paquete `ETCCDI_precipitacion` contiene **dos módulos principales**:
 |--------|-------|-------------|
 | `Procesamiento` | `ETCCDI_precip_malla` | Índices sobre datos en malla NetCDF (usa CDO) |
 |  | `ETCCDI_precip_in_situ` | Índices sobre datos de estación (`.txt` → `.xlsx`) |
-| `Ploteo` | `ETCCDI_precip_plot_in_situ` | Gráficas de series temporales con tendencia (in situ) |
+| `Graficamiento` | `ETCCDI_precip_plot_in_situ` | Gráficas de series temporales con tendencia (in situ) |
 |  | `ETCCDI_precip_plot_malla` | Mapas de índices y tendencias (NetCDF) |
 
 ---
@@ -43,7 +43,7 @@ El paquete `ETCCDI_precipitacion` contiene **dos módulos principales**:
 <br><br>
 # Datos
 
-Para los ejemplos de procesamiento y ploteo. 
+Para los ejemplos de procesamiento y graficamiento. 
 
 Los datos se pueden descargar de [Google Drive](https://drive.google.com/drive/folders/1zQotdaKFL3T5ik-g8XgVgNiNfvbWxYvJ?usp=drive_link)
 
@@ -63,7 +63,7 @@ Los datos se pueden descargar de [Google Drive](https://drive.google.com/drive/f
 
 
 <br><br>
-# Ploteo de datos - Ejemplos
+# Graficamiento de datos - Ejemplos
  Malla
 - Frecuencia [Ejemplos](Indices_frecuencia_ploteo_malla.ipynb) 
 - Duración [Ejemplos](Indices_Duracion_ploteo_malla.ipynb)  
