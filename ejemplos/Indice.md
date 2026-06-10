@@ -78,4 +78,4 @@ Los datos se pueden descargar de [Google Drive](https://drive.google.com/drive/f
 <br><br>
 # Replicar cuadernos de Jupyter de los ejemplos -
 
-[Pasos]()
+[Pasos](Pasos_replicar_Ejemplos.md)
