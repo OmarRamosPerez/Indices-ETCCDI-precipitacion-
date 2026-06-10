@@ -56,7 +56,7 @@ En una nueva anaconda prompt o terminal, activar el entorno "ETCCDI_precipitacio
 conda activate ETCCDI_precipitacion
 ```
 
-![Paso_1]()
+![Paso_1](Ejemplos_Paso_1)
 
 
 
