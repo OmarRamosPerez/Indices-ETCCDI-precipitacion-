@@ -48,32 +48,8 @@ Para los ejemplos de procesamiento y graficamiento.
 Los datos se pueden descargar de [Google Drive](https://drive.google.com/drive/folders/1zQotdaKFL3T5ik-g8XgVgNiNfvbWxYvJ?usp=drive_link)
 
 <br><br>
-# Replicar cuadernos de Jupyter de los ejemplos -
-
-En una nueva Anaconda prompt o terminal, activar el entorno "ETCCDI_precipitacion"
-
-```
-conda activate ETCCDI_precipitacion
-```
-
-![Paso_1](Ejemplos_Paso_1.png)
-
-
-Sin salir del anaconda prompt, activar "jupyter lab"
-
-```
-jupyter lab
-```
-![Paso 2](Ejemplos_Paso_2_1.png)
-
-
-<br>
-
-Automáticamente se abrirá una ventana en el navegador.
-
-![Paso 2](Ejemplos_Paso_2_2.png)
-
-
+# Procesamiento de datos -
+    
 ## Malla
 - Frecuencia [Ejemplos](Indices_frecuencia_malla.ipynb) 
 - Duración [Ejemplos](Indices_duracion_malla.ipynb) 
@@ -87,16 +63,19 @@ Automáticamente se abrirá una ventana en el navegador.
 
 
 <br><br>
-# Graficamiento de datos - Ejemplos
+# Graficamiento de datos -
  Malla
 - Frecuencia [Ejemplos](Indices_frecuencia_ploteo_malla.ipynb) 
 - Duración [Ejemplos](Indices_Duracion_ploteo_malla.ipynb)  
-
 
       
 # In Situ
 - Frecuencia [Ejemplos](Indices_frecuencia_ploteo_in_situ.ipynb) 
 - Duración [Ejemplos]()
 
-  
 
+
+<br><br>
+# Replicar cuadernos de Jupyter de los ejemplos -
+
+[Pasos]()
