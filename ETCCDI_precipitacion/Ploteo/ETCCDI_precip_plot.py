@@ -531,7 +531,7 @@ def _guardar(fig, archivo):
     print(f"✅ Figura guardada correctamente: {archivo}")
     print("************************")
 
-   # plt.show()
+    plt.show()
     
     plt.close(fig)
 
@@ -691,7 +691,7 @@ class ETCCDI_precip_plot_malla:
         print(f"✅ Figura guardada correctamente: {Salida_FIGURA}")
         print("************************")
 
-#        plt.show()
+        plt.show()
         plt.close(fig)
 
         return fig, ax, img
