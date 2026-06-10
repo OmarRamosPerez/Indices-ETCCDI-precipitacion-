@@ -48,7 +48,26 @@ Para los ejemplos de procesamiento y graficamiento.
 Los datos se pueden descargar de [Google Drive](https://drive.google.com/drive/folders/1zQotdaKFL3T5ik-g8XgVgNiNfvbWxYvJ?usp=drive_link)
 
 <br><br>
-# Procesamiento de datos - Ejemplos 
+# Procesamiento de datos -
+
+En una nueva anaconda prompt o terminal, activar el entorno "ETCCDI_precipitacion"
+
+```
+conda activate ETCCDI_precipitacion
+```
+
+![Paso_1]()
+
+
+
+
+Sin salir del anaconda prompt, activar "jupyter lab"
+
+```
+jupyter lab
+```
+
+
 
 ## Malla
 - Frecuencia [Ejemplos](Indices_frecuencia_malla.ipynb) 
