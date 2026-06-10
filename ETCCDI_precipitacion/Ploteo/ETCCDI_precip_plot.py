@@ -278,7 +278,7 @@ class ETCCDI_precip_plot_in_situ:
         print("********************")
 
             
-        #plt.show()
+        plt.show()
 
 
         # Convertir diccionario a DataFrame de Pandas
