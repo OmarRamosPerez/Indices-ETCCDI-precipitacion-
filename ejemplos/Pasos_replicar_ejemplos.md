@@ -16,7 +16,7 @@ conda activate ETCCDI_precipitacion
 ![Paso_1](Ejemplos_Paso_1.png)
 
 
-2) Sin salir del anaconda prompt, activar "jupyter lab"
+3) Sin salir del anaconda prompt, activar "jupyter lab"
 
 ```
 jupyter lab
@@ -31,6 +31,15 @@ Automáticamente se abrirá una ventana en el navegador.
 ![Paso 2](Ejemplos_Paso_2_2.png)
 
 
-3) En el lanzador, activar el kernel "ETCCDI_precipitacion"
+4) En el lanzador, activar el kernel "ETCCDI_precipitacion"
+
+![Paso 3](Ejemplos_Paso_3.png)
+
+
+
+
+
+
+
 
 
