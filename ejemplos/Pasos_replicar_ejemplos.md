@@ -2,9 +2,9 @@
 
 
 1) Descarga el cuaderno Jupyter (.ipynb) de la categoría de índices ETCCDI precipitación de tu interés.
-
-  [Cuadernos Jupyter Ejemplos](Indice.md)
-
+   Secciones:
+     - Procesamiento de datos [Ejemplos](Indice.md)
+     - Graficamiento de datos [Ejemplos](Indice.md)
 
   
 2) En una nueva Anaconda prompt o terminal, activar el entorno "ETCCDI_precipitacion"
