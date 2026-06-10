@@ -30,7 +30,7 @@ Este notebook muestra cómo importar y usar las funciones del paquete .
 
 El paquete `ETCCDI_precipitacion` contiene **dos módulos principales**:
 
-| Módulo | Clase | Descripción |
+| Módulo | Función | Descripción |
 |--------|-------|-------------|
 | `Procesamiento` | `ETCCDI_precip_malla` | Índices sobre datos en malla NetCDF (usa CDO) |
 |  | `ETCCDI_precip_in_situ` | Índices sobre datos de estación (`.txt` → `.xlsx`) |
