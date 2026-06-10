@@ -66,7 +66,7 @@ Sin salir del anaconda prompt, activar "jupyter lab"
 ```
 jupyter lab
 ```
-
+![Paso 2](Ejemplos_Paso_2.png)
 
 
 ## Malla
