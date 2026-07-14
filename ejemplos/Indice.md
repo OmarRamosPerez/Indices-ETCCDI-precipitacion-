@@ -53,13 +53,13 @@ Los datos se pueden descargar de [Google Drive](https://drive.google.com/drive/f
 ## Malla
 - Frecuencia [Ejemplos](Indices_frecuencia_malla.ipynb) 
 - Duración [Ejemplos](Indices_duracion_malla.ipynb) 
-- Percentiles [Ejemplos]()
+- Percentiles [Ejemplos](Indices_percentiles_malla.ipynb)
 
   
 ## In Situ
 - Frecuencia [Ejemplos](Indices_frecuencia_in_situ.ipynb) 
 - Duración [Ejemplos](Indices_duracion_in_situ.ipynb) 
-- Percentiles [Ejemplos]()
+- Percentiles [Ejemplos](Indices_percentiles_in_situ.ipynb)
 
 
 <br><br>
