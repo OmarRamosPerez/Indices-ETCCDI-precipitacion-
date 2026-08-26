@@ -12,7 +12,7 @@ En anaconda prompt
 git clone https://github.com/OmarRamosPerez/Indices-ETCCDI-precipitacion-.git
 ```
 
-Ir al directorio Indices-ETCCDI-precipitacion
+## 2-1) Ir al directorio Indices-ETCCDI-precipitacion
 ```
 cd Indices-ETCCDI-precipitacion-
 ```
