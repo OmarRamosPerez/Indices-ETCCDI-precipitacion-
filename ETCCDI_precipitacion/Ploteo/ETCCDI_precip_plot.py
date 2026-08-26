@@ -1,6 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy import stats
+import calendar
+import pandas as pd
 
 
 import cartopy.crs as ccrs
@@ -164,7 +166,6 @@ def calculate_mean_no_zeros(data_array):
             return np.nan  # Retorna NaN si todos los valores son cero
 
 
-import pandas as pd
 
 
 ################################################################################
@@ -307,6 +308,171 @@ class ETCCDI_precip_plot_in_situ:
         
 
         return results, df
+
+
+
+
+    def plot_rx_monthly(archivo_excel, salida_figura, salida_excel,
+                    agrupar_anual=False, mes_seleccionado=None):
+        """
+        Grafica y calcula tendencia para índices RX1day/RX5day a partir de un archivo
+    Excel con columnas: year, month, index.
+
+    Parámetros
+    ----------
+    archivo_excel : str
+        Ruta al archivo .xlsx con 3 columnas (year, month, index).
+    salida_figura : str
+        Ruta donde guardar la figura.
+    salida_excel : str
+        Ruta donde guardar los estadísticos.
+    agrupar_anual : bool, opcional (default=False)
+        Si es True, se agrupa por año tomando el máximo (RX1day/RX5day anual).
+        Solo se usa si `mes_seleccionado` es None.
+    mes_seleccionado : int, opcional (default=None)
+        Número del mes (1=Enero, ..., 12=Diciembre) a graficar.
+        Si se especifica, se filtra la serie para ese mes y se grafica la tendencia
+        interanual. Anula el efecto de `agrupar_anual`.
+    """
+    # 1. Leer el archivo
+        df = pd.read_excel(archivo_excel)
+    
+    # Guardar el nombre original de la variable (tercera columna)
+        nombre_variable = df.columns[2]
+    
+    # Renombrar para estandarizar el manejo interno
+        df.columns = ['year', 'month', 'index']
+    
+    # 2. Preparar serie temporal según el modo elegido
+        if mes_seleccionado is not None:
+        # --- Modo: mes específico ---
+            if not (1 <= mes_seleccionado <= 12):
+                raise ValueError("mes_seleccionado debe estar entre 1 y 12.")
+        
+            df_filtrado = df[df['month'] == mes_seleccionado].copy()
+            if df_filtrado.empty:
+                raise ValueError(f"No hay datos para el mes {mes_seleccionado}.")
+        
+            time_array = df_filtrado['year'].values
+            data_array = df_filtrado['index'].values
+            xlabel = 'Año'
+            mes_nombre = calendar.month_abbr[mes_seleccionado]
+            titulo_extra = f' - Mes: {mes_nombre}'
+            modo_texto = f'para {mes_nombre}'
+            mes_guardado = mes_seleccionado
+        
+        elif agrupar_anual:
+        # --- Modo: máximo anual ---
+            df_anual = df.groupby('year', as_index=False)['index'].max()
+            time_array = df_anual['year'].values
+            data_array = df_anual['index'].values
+            xlabel = 'Año'
+            titulo_extra = ' (máximo anual)'
+            modo_texto = 'anual'
+            mes_guardado = 'Anual'
+        else:
+        # --- Modo: serie mensual completa (por defecto) ---
+            time_array = df['year'].values + (df['month'].values - 1) / 12.0
+            data_array = df['index'].values
+            xlabel = 'Año (serie mensual)'
+            titulo_extra = ' (mensual)'
+            modo_texto = 'mensual completa'
+            mes_guardado = 'Todos'
+
+    # 3. Calcular estadísticos
+        tau, p_value, trend, z_stat = mann_kendall_test(data_array)
+        slope, intercept, slope_ci_lower, slope_ci_upper = theil_sen_estimator_with_ci(
+            time_array, data_array
+            )
+        trend_line, trend_line_lower, trend_line_upper = calculate_confidence_bands(
+            time_array, data_array, slope, intercept, slope_ci_lower, slope_ci_upper
+            )
+
+    # 4. Guardar estadísticos en Excel
+        resultados = pd.DataFrame([{
+        'Variable': nombre_variable,
+        'Mes': mes_guardado,
+        'Modo': modo_texto,
+        'Kendall_tau': tau,
+        'p_value': p_value,
+        'Tendencia': trend,
+        'Z-statistic': z_stat,
+        'Sen_slope': slope,
+        'IC_inferior': slope_ci_lower,
+        'IC_superior': slope_ci_upper,
+        'Intercept': intercept
+        }])
+        
+ 
+    # 5. Graficar
+        fig, ax = plt.subplots(figsize=(20, 12))
+
+    # Datos originales
+        ax.plot(time_array, data_array, 'o-', color='black', alpha=0.7,
+            markersize=4, linewidth=1, label='Datos')
+
+    # Recta de tendencia
+        ax.plot(time_array, trend_line, '-', color='red', linewidth=2,
+            label='Tendencia Theil-Sen')
+
+    # Banda de confianza al 95%
+        ax.fill_between(time_array, trend_line_lower, trend_line_upper,
+                    color='red', alpha=0.2, label='IC 95%')
+
+    # Configuración del gráfico
+        ax.set_xlabel(xlabel)
+    
+    # Unidades
+        unidades_dict = {
+        'RX1day': 'mm',
+        'RX5day': 'mm',
+        'R10mm': 'días',
+        'R20mm': 'días',
+        # ... puedes ampliar
+        }
+        unidades = unidades_dict.get(nombre_variable, '')
+        ylabel = f'{nombre_variable} ({unidades})' if unidades else nombre_variable
+        ax.set_ylabel(ylabel)
+
+    # Límites Y
+        ymin = np.floor(data_array.min()) - 1
+        ymax = np.ceil(data_array.max()) + 1
+        ax.set_ylim(ymin, ymax)
+
+    # Título con información de la tendencia
+        significance = "**" if p_value < 0.01 else "*" if p_value < 0.05 else ""
+        title = f'{nombre_variable}{titulo_extra}\n'
+        title += f'Tendencia: {trend}{significance}\n'
+        title += f'Pendiente: {slope:.4f} {unidades}/año\n'
+        title += f'IC 95%: [{slope_ci_lower:.4f}, {slope_ci_upper:.4f}]\n'
+        title += f'τ = {tau:.3f}, p = {p_value:.3f}'
+        ax.set_title(title, fontsize=12)
+
+        ax.legend(loc='upper left', fontsize=10)
+        ax.grid(True, alpha=0.3)
+
+        plt.tight_layout()
+        plt.savefig(salida_figura, dpi=150, bbox_inches='tight')
+        print(f"✅ Figura guardada en: {salida_figura}")
+        
+        
+        print("********************")
+        print(f"✅ Archivo de estadísticas exportado: {salida_excel} ")
+        print("********************")
+
+        
+        plt.show()
+        plt.close(fig)
+
+
+        # Convertir diccionario a DataFrame de Pandas
+        df = pd.DataFrame(resultados)
+
+# Exportar a Excel
+        df.to_excel(salida_excel, index=False)
+        
+
+        return resultados, df
 
 
 ###############################################################################################
