@@ -180,6 +180,24 @@ class ETCCDI_precip_plot_in_situ:
 # Load the Excel file (first sheet by default)
         df = pd.read_excel(archivo_excel)
 
+        # Obtener nombre de la variable desde el encabezado de la segunda columna
+        nombre_variable = df.columns[1]
+        # Diccionario opcional con unidades comunes (ampliar según necesidad)
+        unidades_dict = {
+            'RX1day': 'mm',
+            'RX5day': 'mm',
+            'R10mm': 'días',
+            'R20mm': 'días',
+            'CDD': 'días',
+            'CWD': 'días',
+            'PRCPTOT': 'mm',
+            'SDII': 'mm/day',
+            'R95P': 'mm',
+            'R99P': 'mm'
+        }
+        unidades = unidades_dict.get(nombre_variable, '')
+        ylabel = f'{nombre_variable} ({unidades})' if unidades else nombre_variable
+
         data_in = df.iloc[:, 1]
 
         time_array = df.iloc[:, 0]
@@ -243,14 +261,14 @@ class ETCCDI_precip_plot_in_situ:
             
             # Set plot properties
         ax.set_xlabel('Year')
-        ax.set_ylabel('RX5day (mm)')
+        ax.set_ylabel(ylabel)
         ax.set_ylim(diff_min_ar, diff_max_ar)
         ax.set_xticks(np.arange(1951, 2014, 10))
         ax.set_xticklabels(np.arange(1951, 2014, 10).astype(int))
             
             # Title with trend information
         significance = "**" if p_value < 0.01 else "*" if p_value < 0.05 else ""
-        title = '' #f'{dataset_name} - {month}\n'
+        title = f'{nombre_variable}\n'  #f'{dataset_name} - {month}\n'
         title += f'Trend: {trend}{significance}\n'
         title += f'Slope: {slope:.4f} mm/year\n'
         title += f'95% CI: [{slope_ci_lower:.4f}, {slope_ci_upper:.4f}]\n'
@@ -495,7 +513,9 @@ def _base_ax(fig, lats, lons):
     gl.yformatter   = LatitudeFormatter()
     return ax, proj
  
- 
+    cb_label = f'Pendiente Theil-Sen de {long_name} ({units})' if units else f'Pendiente Theil-Sen de {long_name}'
+        
+
 def _pcolormesh_cb(fig, ax, proj, lons, lats, data2d, cmap,
                    vmin, vmax, cb_label):
     """Pinta pcolormesh + colorbar horizontal centrada en 0."""
@@ -719,9 +739,11 @@ class ETCCDI_precip_plot_malla:
  
         cmap = plt.get_cmap(color_scale)
 
+        cb_label = f'Pendiente Theil-Sen de {long_name} ({units})' if units else f'Pendiente Theil-Sen de {long_name}'
+
         # Fondo con pendiente
         _pcolormesh_cb(fig, ax, proj, lons, lats, pend_map,
-                       cmap, None, None, 'Pendiente Theil-Sen')
+                       cmap, None, None, cb_label )
 
         lon2d, lat2d = np.meshgrid(lons, lats)
  
