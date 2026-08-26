@@ -921,7 +921,7 @@ class ETCCDI_precip_plot_malla:
             if mask.sum() == 0:
                 continue
             ax.scatter(lon2d[mask], lat2d[mask],
-                       marker=marker_s, c=color_s, s=20, alpha=0.9,
+                       marker=marker_s, c=color_s, s=10, alpha=0.9,
                        linewidths=1.0, edgecolors='black',
                        transform=proj, zorder=5, label=label_s)
 
