@@ -39,7 +39,7 @@ Sin salir del Anaconda prompt, instalar el entorno como kernel para que aparezca
 python -m ipykernel install --user --name ETCCDI_precipitacion --display-name "ETCCDI_precipitacion"
 ```
 
-### 7) Cerrar la ventana. Para verificar la instalación:
+## 7) Cerrar la ventana. Para verificar la instalación:
 
 [Verificación](https://github.com/OmarRamosPerez/Indices-ETCCDI-precipitacion-/tree/main#verificaci%C3%B3n-de-instalaci%C3%B3n)
 
