@@ -686,7 +686,7 @@ def calcular_tendencias_grilla(datos):
 #  4. HELPERS DE FIGURA
 # ════════════════════════════════════════════════════════════
  
-def _base_ax(fig, lats, lons):
+def _base_ax(fig, lats, lons, shapefile_ruta):
     """Crea un eje cartopy con fondo, costas y grilla estándar."""
     proj   = ccrs.PlateCarree()
     extent = [lons.min() - 1, lons.max() + 1,
@@ -700,6 +700,14 @@ def _base_ax(fig, lats, lons):
     ax.add_feature(cfeature.COASTLINE, linewidth=0.6, edgecolor='black', zorder=3)
     ax.add_feature(cfeature.STATES, linewidth=0.6, edgecolor='black', zorder=3)
 
+    # 8.1 Agregar
+
+        # Load the shapefile
+    gdf = gpd.read_file(shapefile_ruta)
+
+    gdf.plot(ax=ax, transform=ccrs.PlateCarree(), edgecolor='gold', facecolor='none', linewidth=1)
+
+
     gl = ax.gridlines(crs=proj, draw_labels=True,
                       linewidth=0.3, color='gray', alpha=0.6, linestyle='--')
     gl.top_labels   = False
@@ -709,8 +717,9 @@ def _base_ax(fig, lats, lons):
     gl.xformatter   = LongitudeFormatter()
     gl.yformatter   = LatitudeFormatter()
     return ax, proj
+
  
-    cb_label = f'Pendiente Theil-Sen de {long_name} ({units})' if units else f'Pendiente Theil-Sen de {long_name}'
+#    cb_label = f'Pendiente Theil-Sen de {long_name} ({units})' if units else f'Pendiente Theil-Sen de {long_name}'
         
 
 def _pcolormesh_cb(fig, ax, proj, lons, lats, data2d, cmap,
@@ -862,7 +871,7 @@ class ETCCDI_precip_plot_malla:
     # 8.1 Agregar
 
         # Load the shapefile
-        gdf = gpd.read_file(shapefile_path)
+        gdf = gpd.read_file(shapefile_ruta)
 
         gdf.plot(ax=ax, transform=ccrs.PlateCarree(), edgecolor='gold', facecolor='none', linewidth=1)
 
@@ -903,7 +912,7 @@ class ETCCDI_precip_plot_malla:
 #  4D. FIGURA 4 — Mapa de tendencias + significancia
 # ════════════════════════════════════════════════════════════
  
-    def plot_netcdf_n_tiempos(Archivo_NC: str, Salida_FIG: str, Salida_NC: str, color_scale: str):
+    def plot_netcdf_n_tiempos(Archivo_NC: str, Salida_FIG: str, Salida_NC: str, color_scale: str, shapefile_ruta=None):
 #        print(f"\n📂 Leyendo: {ARCHIVO_NC}")
         VARIABLE = None
         
