@@ -700,12 +700,10 @@ def _base_ax(fig, lats, lons, shapefile_ruta):
     ax.add_feature(cfeature.COASTLINE, linewidth=0.6, edgecolor='black', zorder=3)
     ax.add_feature(cfeature.STATES, linewidth=0.6, edgecolor='black', zorder=3)
 
-    # 8.1 Agregar
-
-        # Load the shapefile
-    gdf = gpd.read_file(shapefile_ruta)
-
-    gdf.plot(ax=ax, transform=ccrs.PlateCarree(), edgecolor='gold', facecolor='none', linewidth=1)
+# 8.1 Agregar shapefile opcional
+    if shapefile_ruta is not None and shapefile_ruta != '':
+        gdf = gpd.read_file(shapefile_ruta)
+        gdf.plot(ax=ax, transform=ccrs.PlateCarree(), edgecolor='gold', facecolor='none', linewidth=1)
 
 
     gl = ax.gridlines(crs=proj, draw_labels=True,
@@ -868,12 +866,11 @@ class ETCCDI_precip_plot_malla:
         ax.add_feature(cfeature.STATES, edgecolor='black', linewidth=0.4)
 
 
-    # 8.1 Agregar
 
-        # Load the shapefile
-        gdf = gpd.read_file(shapefile_ruta)
-
-        gdf.plot(ax=ax, transform=ccrs.PlateCarree(), edgecolor='gold', facecolor='none', linewidth=1)
+# 8.1 Agregar shapefile opcional
+        if shapefile_ruta is not None and shapefile_ruta != '':
+            gdf = gpd.read_file(shapefile_ruta)
+            gdf.plot(ax=ax, transform=ccrs.PlateCarree(), edgecolor='gold', facecolor='none', linewidth=1)
 
 
     # 9. Extensión del mapa
