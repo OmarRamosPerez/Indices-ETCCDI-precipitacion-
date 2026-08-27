@@ -801,8 +801,7 @@ class ETCCDI_precip_plot_malla:
                          center_cmap=False,
                          levels=None,
                          set_global=False,
-                         ax=None
-                         ):
+                         ax=None):
         """
     Grafica el primer paso de tiempo de una variable en un archivo NetCDF.
     Usa leer_netcdf para obtener datos y coordenadas de forma robusta.
