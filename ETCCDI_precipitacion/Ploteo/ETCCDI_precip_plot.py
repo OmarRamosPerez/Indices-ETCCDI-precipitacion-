@@ -761,74 +761,45 @@ def guardar_resultados(lats, lons, tau_map, pval_map, pend_map,
 
 class ETCCDI_precip_plot_malla:
     
-    def Plot_netcdf_1_tiempo(Archivo_NETCDF: str, Salida_FIGURA: str,
-                             color_scale: str,
-                             center_cmap=False,
-                             levels=None,
-                             set_global=False,
-                             ax=None):
-        """ 
-        Versión FINAL con netCDF4 - valores correctos.
+
+
+
+    def Plot_netcdf_1_tiempo(self, Archivo_NETCDF, Salida_FIGURA,
+                         color_scale='Blues',
+                         center_cmap=False,
+                         levels=None,
+                         set_global=False,
+                         ax=None):
         """
+    Grafica el primer paso de tiempo de una variable en un archivo NetCDF.
+    Usa leer_netcdf para obtener datos y coordenadas de forma robusta.
+    """
+    # 1. Leer el archivo con la función auxiliar (global)
+        datos, lats, lons, nombre_var, long_name, units = leer_netcdf(Archivo_NETCDF)
 
-        import netCDF4 as nc
-        import numpy as np
-
-#        print(f"\n📂 Leyendo con netCDF4: {Archivo_NETCDF}")
-        ds = nc.Dataset(Archivo_NETCDF, 'r')
-
-        # Detectar variable principal
-        var_names = [v for v in ds.variables if v not in ds.dimensions and v.lower() not in ['time', 'tiempo']]
-        nombre_var = var_names[0] if var_names else list(ds.variables.keys())[0]
-#        print(f"ℹ  Variable: '{nombre_var}'")
-
-        var = ds.variables[nombre_var]
-        long_name = getattr(var, 'long_name', nombre_var)
-        units = getattr(var, 'units', '')
-
-        # === Lectura y escalado correcto ===
-        data_raw = var[:]
-
-        if hasattr(var, 'scale_factor') or hasattr(var, 'add_offset'):
-            scale_factor = getattr(var, 'scale_factor', 1.0)
-            add_offset   = getattr(var, 'add_offset', 0.0)
-            data_array = np.asarray(data_raw, dtype=float) * scale_factor + add_offset
-     #       print(f"   Aplicado: scale_factor={scale_factor}, add_offset={add_offset}")
+    # 2. Seleccionar el primer tiempo si es 3D
+        if datos.ndim == 3:
+            data_array = datos[0, :, :]   # (lat, lon)
+        elif datos.ndim == 2:
+            data_array = datos
         else:
-            data_array = np.asarray(data_raw, dtype=float)
+            raise ValueError(f"Los datos tienen {datos.ndim} dimensiones, se esperaban 2 o 3.")
 
-        # Limpieza de fill values
-        fill_value = getattr(var, '_FillValue', None) or getattr(var, 'missing_value', None)
-        if fill_value is not None:
-            data_array[np.isclose(data_array, fill_value, rtol=1e-5, atol=1e8)] = np.nan
+    # 3. Asegurar que sean arrays numpy y con las formas correctas
+        lons = np.asarray(lons)
+        lats = np.asarray(lats)
+        data_array = np.asarray(data_array)
 
-        data_array[np.isinf(data_array) | (np.abs(data_array) > 1e10)] = np.nan
+    # Verificar consistencia
+        if lons.ndim != 1 or lats.ndim != 1:
+            raise ValueError("Las coordenadas deben ser 1D")
+        if data_array.shape != (len(lats), len(lons)):
+            raise ValueError(f"Forma de datos {data_array.shape} no coincide con (lat,lon) ({len(lats)},{len(lons)})")
 
-        # Primer tiempo si es 3D
-        if data_array.ndim == 3:
-            data_array = data_array[0, :, :]
-  #          print("   Usando primer paso de tiempo")
+    # 4. Crear malla 2D para pcolormesh (más seguro y compatible con Cartopy)
+        lon2d, lat2d = np.meshgrid(lons, lats)
 
-   #     print(f"   Min/Max: {np.nanmin(data_array):.2f} / {np.nanmax(data_array):.2f}")
-
-        # Extraer coordenadas ANTES de cerrar
-        lons = ds.variables['lon'][:]
-        lats = ds.variables['lat'][:]
-
-        ds.close()
-
-        # ── Escala de color ─────────────────────
-        valid = data_array[~np.isnan(data_array)]
-        vmin = float(np.percentile(valid, 1)) if len(valid) > 0 else 0
-        vmax = float(np.percentile(valid, 99.5))
-
- #       if any(x in nombre_var.lower() for x in ['r10', 'r20', 'count', 'days']):
- #           vmin = max(0.0, vmin)
- #           vmax = min(250.0, vmax)
-
- #       print(f"   vmin/vmax final: {vmin:.2f} / {vmax:.2f}")
-
-        # ── FIGURA ─────────────────────────────────────────────────────
+    # 5. Configurar figura y ejes
         projection = ccrs.PlateCarree()
         if ax is None:
             fig = plt.figure(figsize=(20, 12))
@@ -836,54 +807,55 @@ class ETCCDI_precip_plot_malla:
         else:
             fig = ax.get_figure()
 
+    # 6. Definir límites del colormap (usando percentiles)
+        valid = data_array[~np.isnan(data_array)]
+        if len(valid) == 0:
+            vmin, vmax = 0, 1
+        else:
+            vmin = float(np.percentile(valid, 1))
+            vmax = float(np.percentile(valid, 99.5))
+
+    # 7. Graficar con pcolormesh (usando malla 2D)
         cmap = plt.get_cmap(color_scale)
+        im = ax.pcolormesh(lon2d, lat2d, data_array,
+                       cmap=cmap, vmin=vmin, vmax=vmax,
+                       transform=ccrs.PlateCarree(), shading='auto')
 
-        img = ax.pcolormesh(lons, lats, data_array,
-                            cmap=cmap, vmin=vmin, vmax=vmax,
-                            transform=ccrs.PlateCarree(), shading='auto')
-
-        # Mapa
+    # 8. Agregar elementos geográficos
         ax.add_feature(cfeature.BORDERS, edgecolor='black', linewidth=0.4)
         ax.add_feature(cfeature.COASTLINE, edgecolor='black', linewidth=0.5)
         ax.add_feature(cfeature.STATES, edgecolor='black', linewidth=0.4)
 
-        ax.set_extent([lons.min(), lons.max(), lats.min(), lats.max()], crs=ccrs.PlateCarree())
+    # 9. Extensión del mapa
+        ax.set_extent([lons.min(), lons.max(), lats.min(), lats.max()],
+                  crs=ccrs.PlateCarree())
 
-        # Grid y etiquetas
+    # 10. Etiquetas de ejes y grid
         dx = 5
         xticks = np.arange(np.floor(lons.min()), np.ceil(lons.max()) + 1, dx)
         yticks = np.arange(np.floor(lats.min()), np.ceil(lats.max()) + 1, dx)
-
         ax.set_xticks(xticks, crs=ccrs.PlateCarree())
         ax.set_yticks(yticks, crs=ccrs.PlateCarree())
         ax.xaxis.set_major_formatter(LongitudeFormatter())
         ax.yaxis.set_major_formatter(LatitudeFormatter())
 
-        # Colorbar
+    # 11. Colorbar
         cb_label = f"{long_name} [{units}]" if units else long_name
-        plt.colorbar(img, ax=ax, orientation='vertical', pad=0.03, fraction=0.035, 
-                    aspect=30, label=cb_label)
+        plt.colorbar(im, ax=ax, orientation='vertical', pad=0.03,
+                 fraction=0.035, aspect=30, label=cb_label)
 
- #       ax.set_title(long_name, color='black', fontsize=14, pad=20, loc='left', fontweight='bold')
-
-# Sets grid characteristics
+    # 12. Líneas de grid (opcional)
         ax.gridlines(xlocs=xticks, ylocs=yticks, alpha=0.6, color='gray',
-             draw_labels=False, linewidth=0.25, linestyle='--')
+                 draw_labels=False, linewidth=0.25, linestyle='--')
 
+    # 13. Guardar y mostrar
         plt.tight_layout()
         plt.savefig(Salida_FIGURA, dpi=200, bbox_inches='tight', facecolor='white')
-
-        print("************************")
         print(f"✅ Figura guardada correctamente: {Salida_FIGURA}")
-        print("************************")
-
         plt.show()
         plt.close(fig)
 
-        return fig, ax, img
-
-
-
+        return fig, ax, im
 
 
  # ════════════════════════════════════════════════════════════
@@ -921,7 +893,7 @@ class ETCCDI_precip_plot_malla:
             if mask.sum() == 0:
                 continue
             ax.scatter(lon2d[mask], lat2d[mask],
-                       marker=marker_s, c=color_s, s=10, alpha=0.9,
+                       marker=marker_s, c=color_s, s=20, alpha=0.9,
                        linewidths=1.0, edgecolors='black',
                        transform=proj, zorder=5, label=label_s)
 
