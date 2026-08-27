@@ -582,25 +582,51 @@ def calcular_tendencia_punto(serie):
 # ════════════════════════════════════════════════════════════
 
 def leer_netcdf(ruta_archivo, nombre_variable=None):
-    """Lee el NetCDF aplicando escalado correctamente."""
+    """
+    Lee el NetCDF y devuelve los datos (con escalado), lat, lon,
+    nombre de variable, long_name y units.
+    Selecciona automáticamente la variable principal si no se especifica.
+    """
     ds = nc.Dataset(ruta_archivo, 'r')
-#    print(f"\n   Variables encontradas: {list(ds.variables.keys())}")
 
+    # Detectar coordenadas
     coord_lat = next((v for v in ds.variables if v.lower() in ('lat', 'latitude', 'rlat', 'y')), None)
     coord_lon = next((v for v in ds.variables if v.lower() in ('lon', 'longitude', 'rlon', 'x')), None)
+
+    if coord_lat is None or coord_lon is None:
+        raise ValueError("No se encontraron coordenadas lat/lon en el archivo.")
 
     lats = np.array(ds.variables[coord_lat][:], dtype=float)
     lons = np.array(ds.variables[coord_lon][:], dtype=float)
 
+    # Si el usuario no especifica la variable, la seleccionamos automáticamente
     if nombre_variable is None:
-        excluir = {'time', 'tiempo', 'time_bnds', 'lon', 'lat', 'latitude', 'longitude', 'time_bounds'}
-        candidatas = [v for v in ds.variables if v not in excluir and v not in ds.dimensions]
+        # Variables a excluir (dimensiones, coordenadas, metadatos)
+        excluir = {
+            'time', 'tiempo', 'time_bnds', 'time_bounds',
+            'lon', 'lat', 'latitude', 'longitude', 'rlon', 'rlat', 'x', 'y',
+            'spatial_ref', 'crs', 'crs_wkt', 'grid_mapping',
+            'number_of_5day_heavy_precipitation_periods_per_time_period'  # ¡añadimos esta!
+        }
+        # También excluimos cualquier variable que sea de tipo string o no tenga dimensiones espaciales
+        candidatas = []
+        for v in ds.variables:
+            if v in excluir or v in ds.dimensions:
+                continue
+            # Verificar que la variable tenga al menos dos dimensiones (lat, lon)
+            dims = ds.variables[v].dimensions
+            if coord_lat in dims and coord_lon in dims:
+                candidatas.append(v)
+        if not candidatas:
+            raise ValueError("No se encontró ninguna variable con coordenadas lat/lon.")
+        # Elegir la variable con más dimensiones (priorizar 3D sobre 2D)
+        candidatas.sort(key=lambda v: len(ds.variables[v].dimensions), reverse=True)
         nombre_variable = candidatas[0]
- #       print(f"ℹ  Variable seleccionada automáticamente: '{nombre_variable}'")
+        print(f"ℹ  Variable seleccionada automáticamente: '{nombre_variable}'")
 
     var = ds.variables[nombre_variable]
     long_name = getattr(var, 'long_name', nombre_variable)
-    units     = getattr(var, 'units', '')
+    units = getattr(var, 'units', '')
 
     # Lectura + escalado
     raw = var[:]
@@ -616,9 +642,6 @@ def leer_netcdf(ruta_archivo, nombre_variable=None):
     if fill_value is not None:
         datos[np.isclose(datos, float(fill_value), rtol=1e-5, atol=1e8)] = np.nan
 
- #   if datos.ndim == 3:
- #       print(f"   Array 3D con {datos.shape[0]} pasos de tiempo.")
-
     ds.close()
     return datos, lats, lons, nombre_variable, long_name, units
 
@@ -629,6 +652,13 @@ def leer_netcdf(ruta_archivo, nombre_variable=None):
 # ════════════════════════════════════════════════════════════
 
 def calcular_tendencias_grilla(datos):
+    
+    if datos.ndim != 3:
+        raise ValueError(f"Se esperaban 3 dimensiones (tiempo, lat, lon), pero se obtuvieron {datos.ndim}.")
+    ntime, nlat, nlon = datos.shape
+    if ntime < 4:
+        raise ValueError(f"Solo hay {ntime} pasos de tiempo. Se necesitan al menos 4 para calcular tendencia.")
+    
     _, nlat, nlon = datos.shape
     tau_map       = np.full((nlat, nlon), np.nan)
     pval_map      = np.full((nlat, nlon), np.nan)
