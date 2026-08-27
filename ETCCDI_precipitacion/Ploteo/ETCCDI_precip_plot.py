@@ -313,7 +313,7 @@ class ETCCDI_precip_plot_in_situ:
 
 
 
-    def plot_rx_monthly(archivo_excel, salida_figura, salida_excel,
+    def plot_rx_monthly(archivo_excel:str, salida_figura:str, salida_excel:str,
                     agrupar_anual=False, mes_seleccionado=None):
         """
         Grafica y calcula tendencia para índices RX1day/RX5day a partir de un archivo
@@ -797,7 +797,7 @@ class ETCCDI_precip_plot_malla:
 
     def Plot_netcdf_1_tiempo(Archivo_NETCDF: str, Salida_FIGURA: str,
                          color_scale: str,
-                         shapefile_path: str,
+                         shapefile_ruta=None,
                          center_cmap=False,
                          levels=None,
                          set_global=False,
