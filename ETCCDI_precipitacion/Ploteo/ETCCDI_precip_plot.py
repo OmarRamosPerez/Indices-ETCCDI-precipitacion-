@@ -4,6 +4,7 @@ from scipy import stats
 import calendar
 import pandas as pd
 
+import geopandas as gpd
 
 import cartopy.crs as ccrs
 import cartopy.feature as cfeature
@@ -796,10 +797,12 @@ class ETCCDI_precip_plot_malla:
 
     def Plot_netcdf_1_tiempo(Archivo_NETCDF: str, Salida_FIGURA: str,
                          color_scale: str,
+                         shapefile_path: str,
                          center_cmap=False,
                          levels=None,
                          set_global=False,
-                         ax=None):
+                         ax=None
+                         ):
         """
     Grafica el primer paso de tiempo de una variable en un archivo NetCDF.
     Usa leer_netcdf para obtener datos y coordenadas de forma robusta.
@@ -855,6 +858,15 @@ class ETCCDI_precip_plot_malla:
         ax.add_feature(cfeature.BORDERS, edgecolor='black', linewidth=0.4)
         ax.add_feature(cfeature.COASTLINE, edgecolor='black', linewidth=0.5)
         ax.add_feature(cfeature.STATES, edgecolor='black', linewidth=0.4)
+
+
+    # 8.1 Agregar
+
+        # Load the shapefile
+        gdf = gpd.read_file(shapefile_path)
+
+        gdf.plot(ax=ax, transform=ccrs.PlateCarree(), edgecolor='gold', facecolor='none', linewidth=1)
+
 
     # 9. Extensión del mapa
         ax.set_extent([lons.min()-1, lons.max()+1, lats.min()-1, lats.max()+1],
