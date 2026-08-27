@@ -857,7 +857,7 @@ class ETCCDI_precip_plot_malla:
         ax.add_feature(cfeature.STATES, edgecolor='black', linewidth=0.4)
 
     # 9. Extensión del mapa
-        ax.set_extent([lons.min(), lons.max(), lats.min(), lats.max()],
+        ax.set_extent([lons.min()-1, lons.max()+1, lats.min()-1, lats.max()+1],
                   crs=ccrs.PlateCarree())
 
     # 10. Etiquetas de ejes y grid
