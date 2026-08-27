@@ -923,7 +923,7 @@ class ETCCDI_precip_plot_malla:
 
         fig = plt.figure(figsize=(12, 8))
         fig.patch.set_facecolor('white') ##0d1117
-        ax, proj = _base_ax(fig, lats, lons)
+        ax, proj = _base_ax(fig, lats, lons, shapefile_ruta)
  
         cmap = plt.get_cmap(color_scale)
 
