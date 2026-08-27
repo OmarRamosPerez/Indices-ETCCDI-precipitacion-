@@ -794,8 +794,8 @@ class ETCCDI_precip_plot_malla:
 
 
 
-    def Plot_netcdf_1_tiempo(self, Archivo_NETCDF, Salida_FIGURA,
-                         color_scale='Blues',
+    def Plot_netcdf_1_tiempo(Archivo_NETCDF: str, Salida_FIGURA: str,
+                         color_scale: str,
                          center_cmap=False,
                          levels=None,
                          set_global=False,
