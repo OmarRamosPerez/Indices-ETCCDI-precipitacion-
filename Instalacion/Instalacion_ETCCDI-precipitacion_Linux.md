@@ -41,5 +41,5 @@ python -m ipykernel install --user --name ETCCDI_precipitacion --display-name "E
 
 ### 7) Cerrar la ventana. Para verificar la instalación:
 
-[Verificación](https://github.com/OmarRamosPerez/Indices-ETCCDI-precipitacion-/tree/main)
+[Verificación](https://github.com/OmarRamosPerez/Indices-ETCCDI-precipitacion-/tree/main#verificaci%C3%B3n-de-instalaci%C3%B3n)
 
