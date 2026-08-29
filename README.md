@@ -1,4 +1,4 @@
-# Indices-ETCCDI-precipitacion
+# ICEPyUS (Índices Climáticos ETCCDI Precipitación en Python de la Universidad de Sonora)
 Paquete en Python para calcular y graficar índices climáticos de precipitación ETCCDI para datos en malla (NetCDF) e in situ (TXT)
 
 <br><br>
