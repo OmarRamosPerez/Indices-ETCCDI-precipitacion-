@@ -1,2 +1,0 @@
-from .Procesamiento import ETCCDI_precip_malla, ETCCDI_precip_in_situ
-from .Ploteo import ETCCDI_precip_plot_in_situ, ETCCDI_precip_plot_malla
